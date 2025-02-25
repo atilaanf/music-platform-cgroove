@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap");
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    background-color: black;
+}
+
+.title {
+    padding: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: red;
+}
+
+.title h1 {
+    color: white;
+    font-size: 4em;
+
+}
+
+.title h2 {
+    color: white;
+    font-size: 3em;
+    text-decoration: underline;
+}
+
+#history {
+    margin: 10px 60px 60px 60px;
+    padding: 10px;
+}
+
+#history h2 {
+    color: white;
+    font-size: 3em;
+    text-decoration: underline;
+}
+
+#history p {
+    margin-top: 10px;
+
+    color: white;
+    text-align: justify;
+}
+
+.team {
+    background-color: green;
+
+}
+
+.team .members {
+    display: flex;
+    background: blue;
+    flex-direction: row;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.team img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+
+#member1,
+#member2,
+#member3 {
+    color: white;
+    font-size: 1.4em;
+    padding: 60px;
+}
+
+@media(max-width: 800px) {
+    .team .members {
+        flex-direction: column;
+    }
+}
