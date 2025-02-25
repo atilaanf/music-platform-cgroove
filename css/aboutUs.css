@@ -23,7 +23,7 @@
 
 .title h1 {
     color: white;
-    font-size: 5em;
+    font-size: 6em;
 
 }
 
@@ -31,17 +31,20 @@
     color: white;
     font-size: 4em;
     text-decoration: underline;
+
+
 }
 
 #history {
     margin: 10px 100px 100px 60px;
     padding: 10px;
+
 }
 
 #history h2 {
     color: white;
     font-size: 4em;
-    text-decoration: underline;
+
 }
 
 #history p {
@@ -87,9 +90,14 @@
     color: #2d3577;
 }
 
-.member a {
+
+
+.team .members a {
     text-decoration: none;
+    color: inherit;
+
 }
+
 
 @media(max-width: 800px) {
     .team .members {
