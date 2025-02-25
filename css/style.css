@@ -1,13 +1,5 @@
 /* TABLE OF CONTENT
 
-if you're using VS Code, use Ctrl + F to search what you need.
-
-1. Global Styling.
-2. Sidebar Styling.
-3. Nav bar styling.
-4. Main Section styling. Card collection and cards.
-5. Music Player Head Styling.
-6. Responsiveness with @media
 
 */
 
@@ -21,11 +13,11 @@ if you're using VS Code, use Ctrl + F to search what you need.
 *, *::after, *::before{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing:content-box;
 }
 
 :root{
-    --background-color-topbar: #3674B5;
+    --background-color-topbar: #0a0b0f;
     --background-color-active: #282828;
     --text-inactive: #121212;
 }
@@ -34,7 +26,7 @@ body{
   font-family: "Lato", sans-serif;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(209, 248, 239)20%, rgb(161, 227, 249) 50%);
+    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(61, 148, 128)20%, rgb(66, 126, 146) 50%);
 
 }
 
@@ -52,28 +44,42 @@ a{
     position:fixed;
     justify-content: space-evenly;
     background: var(--background-color-topbar) ;
-    
+    align-items: center;
 }
 
 .profile{
-background: var(--background-color-active);
+
 color: white;
-border-radius: 5px;
+border-radius: 10px;
 width: 10%;
 display: flex;
 align-items: center;
-gap: 20px;
+gap: 10px;
 padding: 10px;
+height: 30%;
  
+}
+
+.profile:hover{
+  background: var(--background-color-active);
+}
+
+.imgcontainer{
+
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .profile img{
   border-radius: 50%;
   object-fit: cover;
-  height: 100%;
   width: 100%;
-
-  width: 30%;
+  height: 100%;
+  
   
 }
 
@@ -116,7 +122,7 @@ padding: 10px;
     justify-content: space-evenly;
     margin: 15px 10px;
     color: var(--text-inactive);
-    font-size: 16px;
+    font-size: 120%;
 
 }
 
@@ -350,6 +356,7 @@ padding: 10px;
 
 .card__container{
   padding: 1em;
+
 }
 
 .card__title{
@@ -365,10 +372,13 @@ padding: 10px;
 
 .card__collection{
   display: flex;
-  margin-right: 15px;
+  margin-top: 10px;
+  background:var(--background-color-active);
+  border-radius: 10px;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
+  height: 50vh;
 }
 
 .card_top{
@@ -376,10 +386,10 @@ padding: 10px;
   margin: 15px;
   background-color: #5759577a;
   align-items: center;
-  height: fit-content;
   border-radius: 10px;
-  width: clamp(100px, 100%, 300px);
   transition: all 250ms;
+  height: 90%;
+  width: 95%;
 }
 
 .card_top:hover{
@@ -390,18 +400,34 @@ padding: 10px;
 
 .card_top > * {
   margin-right: 10px;
+  
 }
 
+.imgcontainercard{
+
+  height: 100%;
+  width: auto;
+}
 .card_top img{
-  width: 75px;
-  height: 75px;
+  width: 100%;
+  height: 100%;
   border-radius: 10px 0 0 10px;
 }
 
 .card_top .card__info{
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  white-space: wrap;
+  width: 60%;
+  
+  
+
+
+}
+.card_top .card__info::-webkit-scrollbar{
+  width: 10px;
+}
+
+.card_top .card__info::-webkit-scrollbar-thumb{
+  background-color: rgba(149, 17, 17, 0.333);
 }
 
 .card_top .fa-circle{
