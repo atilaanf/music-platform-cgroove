@@ -1,13 +1,5 @@
 /* TABLE OF CONTENT
 
-if you're using VS Code, use Ctrl + F to search what you need.
-
-1. Global Styling.
-2. Sidebar Styling.
-3. Nav bar styling.
-4. Main Section styling. Card collection and cards.
-5. Music Player Head Styling.
-6. Responsiveness with @media
 
 */
 
@@ -25,7 +17,7 @@ if you're using VS Code, use Ctrl + F to search what you need.
 }
 
 :root{
-    --background-color-topbar: #3674B5;
+    --background-color-topbar: #0a0b0f;
     --background-color-active: #282828;
     --text-inactive: #121212;
 }
@@ -34,7 +26,7 @@ body{
   font-family: "Lato", sans-serif;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(209, 248, 239)20%, rgb(161, 227, 249) 50%);
+    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(61, 148, 128)20%, rgb(66, 126, 146) 50%);
 
 }
 
@@ -408,11 +400,11 @@ height: 30%;
 
 .card_top > * {
   margin-right: 10px;
+  
 }
 
 .imgcontainercard{
 
-  background-color: red;
   height: 100%;
   width: auto;
 }
@@ -423,11 +415,19 @@ height: 30%;
 }
 
 .card_top .card__info{
-  text-overflow: ellipsis;
-  overflow: auto;
   white-space: wrap;
   width: 60%;
+  
+  
 
+
+}
+.card_top .card__info::-webkit-scrollbar{
+  width: 10px;
+}
+
+.card_top .card__info::-webkit-scrollbar-thumb{
+  background-color: rgba(149, 17, 17, 0.333);
 }
 
 .card_top .fa-circle{
