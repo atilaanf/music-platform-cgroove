@@ -25,16 +25,17 @@ if you're using VS Code, use Ctrl + F to search what you need.
 }
 
 :root{
-    --background-color-sidebar: #000000;
+    --background-color-topbar: #3674B5;
     --background-color-active: #282828;
     --text-inactive: #121212;
 }
 
 body{
   font-family: "Lato", sans-serif;
-    width: 100vh;
+    width: 100%;
     height: 100vh;
-    background: linear-gradient(0deg, rgb(177, 74, 74) 0%, rgb(19, 19, 19) 30%, rgba(22, 22, 22, 1) 50%, #202020 100%);
+    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(209, 248, 239)20%, rgb(161, 227, 249) 50%);
+
 }
 
 a{
@@ -42,30 +43,50 @@ a{
     color: #FFF;
 }
 
-/* Sidebar Styling */
-#sidebar{
-    position: fixed;
-    top: 0;
-    width: 20%;
+/* Topbar Styling */
+#topbar{
+    width: 100%;
     padding: 20px;
-    background: var(--background-color-sidebar);
-    height: 100%;
-    overflow-y: scroll;
+    display: flex;
+    gap: 20px;
+    position:fixed;
+    justify-content: space-evenly;
+    background: var(--background-color-topbar) ;
+    
 }
 
-#sidebar::-webkit-scrollbar{
-  display: none;
+.profile{
+background: var(--background-color-active);
+color: white;
+border-radius: 5px;
+width: 10%;
+display: flex;
+align-items: center;
+gap: 20px;
+padding: 10px;
+ 
 }
 
+.profile img{
+  border-radius: 50%;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+
+  width: 30%;
+  
+}
+
+
+
+/* content */
 #content{
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80%;
+    
+    width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
-  overflow-y: scroll;
+    overflow-y: scroll;
 
 }
 
@@ -90,11 +111,65 @@ a{
 
 #navigation, #cta{
     display: flex;
-    flex-direction: column;
+    width: 60%;
+    flex-direction: row;
+    justify-content: space-evenly;
     margin: 15px 10px;
     color: var(--text-inactive);
     font-size: 16px;
+
 }
+
+.dropdown-menu{
+
+  position: absolute;
+  list-style: none;  /* Removes bullet points */
+  padding: 0;  /* Removes default padding */
+  margin: 0;  /* Removes default margin */
+  background-color: var(--background-color-active);
+  width:100%;
+  left: 0;
+  display: none;
+
+}
+
+.dropdown-menu li{
+
+  margin: 10px 5px 10px 5px;
+}
+
+.navigationsong:hover .dropdown-menu{
+
+  display: block;
+}
+
+
+.navigationsong{
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  opacity: 0.8;
+  transition: all 250ms;
+  position: relative;
+}
+
+.navigation_item{
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 5px;
+  opacity: 0.8;
+  transition: all 250ms;
+}
+
+.navigationsong:hover{
+  background: var(--background-color-active);
+  opacity: 1;
+}
+
+.navigationsong > span{
+  margin-left: 15px;
+}
+
 
 .navigation_item{
     margin: 5px 0;
@@ -174,107 +249,6 @@ a{
     justify-self: flex-end;
 }
 
-/* Nav bar styling */
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80%;
-    background-color: #1E1E1E;
-
-  }
-
-  nav .navigate i {
-    display: inline-block;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 5px;
-    background-color: #000;
-    padding: 10px 15px;
-    border-radius: 50%;
-    color: rgb(82, 82, 82);
-    cursor: pointer;
-  }
-
-  nav button {
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 600;
-    width: 150px;
-    height: 38px;
-    background: #000;
-    color: white;
-    border: 1px solid white;
-    border-radius: 20px;
-    margin-right: 20px;
-  }
-  nav .profile-dropdown,
-  nav .profile-dropdown .visible {
-    display: inline;
-  }
-  nav .profile-dropdown .visible {
-    width: 180px;
-    height: 32px;
-    background-color: #282828;
-    color: white;
-    padding: 3px 10px 5px;
-    border-radius: 16px;
-  }
-  nav .profile-dropdown {
-    cursor: pointer;
-    position: relative;
-  }
-  nav .profile-dropdown img {
-    border: 2px solid #282828;
-    border-radius: 50%;
-    height: 28px;
-    width: 30px;
-    position: relative;
-    top: 8px;
-    left: -10px;
-  }
-  nav .profile-dropdown span {
-    position: relative;
-    left: -5px;
-  }
-  nav .profile-dropdown .arrow {
-    position: relative;
-    top: -2px;
-  }
-  nav .profile-dropdown .hidden {
-    display: none;
-    position: absolute;
-    top: 25px;
-    right: 5px;
-    z-index: 10;
-    background-color: #282828;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    padding: 15px 4px;
-    width: 210px;
-    height: 170px;
-  }
-  nav .profile-dropdown:hover .hidden {
-    display: block;
-  }
-  nav .profile-dropdown ul li {
-    list-style: none;
-    padding: 7px 15px 10px;
-    color: white;
-    font-size: 15px;
-  }
-  nav .profile-dropdown ul li:hover {
-    background-color: #3b3b3b;
-    border-radius: 5px;
-  }
-  nav .profile-dropdown ul li.link i {
-    float: right;
-  }
 
   /* Music Player head styling */
 
@@ -366,7 +340,7 @@ nav {
 
 #main{
   padding: 1em;
-  margin-top: 3em;
+  margin-top: 10%;
   color: #fff;
 }
 
@@ -476,17 +450,11 @@ nav {
 
 @media(max-width: 800px){
 
-  #sidebar{
-    display: none;
-  }
 
   #content{
     width: 100%;
   }
 
-  nav{
-    width: 100%;
-  }
 
   .card_top, .card{
     transform: scale(0.8);
