@@ -133,10 +133,24 @@ height: 30%;
   padding: 0;  /* Removes default padding */
   margin: 0;  /* Removes default margin */
   background-color: var(--background-color-active);
-  width:100%;
   left: 0;
+  width: 100%;
   display: none;
+  
+}
 
+.navigationsong:hover .dropdown-menu{
+  display: block;
+  transition: margin-right 2s ease-in-out;
+
+}
+
+
+.dropdown-menu a{
+  margin: 0;
+  padding: 0;
+  
+  
 }
 
 .dropdown-menu li{
@@ -144,13 +158,11 @@ height: 30%;
   margin: 10px 5px 10px 5px;
 }
 
-.navigationsong:hover .dropdown-menu{
-
-  display: block;
-}
 
 
 .navigationsong{
+
+  color: white;
   margin: 5px 0;
   padding: 10px 15px;
   border-radius: 5px;
@@ -170,6 +182,8 @@ height: 30%;
 .navigationsong:hover{
   background: var(--background-color-active);
   opacity: 1;
+
+  
 }
 
 .navigationsong > span{
@@ -178,6 +192,7 @@ height: 30%;
 
 
 .navigation_item{
+  
     margin: 5px 0;
     padding: 10px 15px;
     border-radius: 5px;
