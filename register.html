@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C'Groovy - Register</title>
+    <link rel="icon" href="images/icon.png" />
+    <link rel="stylesheet" href="css/style.css">
+    <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+    <header>
+        <!-- Same navigation as index.html -->
+    </header>
+    <main id="registration">
+        <section class="register">
+            <h1>Register</h1>
+            <form id="register-form">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+    
+                <div>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+    
+                <div>
+                    <label for="gender">Gender:</label>
+                    <div id="gender-field">
+                        <div>
+                            <input type="radio" id="Male" name="gender" value="Male">
+                            <label for="Male">Male</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="Female" name="gender" value="Female">
+                            <label for="Female">Female</label>
+                        </div>
+                    </div>
+                </div>
+    
+                <button type="submit" id="register-btn">Register</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
