@@ -365,9 +365,6 @@ height: 30%;
   color: #fff;
 }
 
-.reverse{
-  flex-direction: row-reverse;
-}
 
 .card__container{
   padding: 1em;
@@ -454,7 +451,8 @@ height: 30%;
   display: flex;
   margin-right: 15px;
   align-items: center;
-  overflow-x: scroll;
+  overflow-x: scroll; 
+  /* biar bisa scroll kalau overflow */
   transition: all 250ms;
 }
 
