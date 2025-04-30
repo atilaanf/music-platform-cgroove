@@ -6,6 +6,7 @@
     <title>Groove</title>
     <link rel="icon" href="images/logo.png" />
     <link rel="stylesheet" href="css/style.css">
+
     <link
     rel="stylesheet"
     href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -13,6 +14,9 @@
     crossorigin="anonymous"
     />
     <script type="application/javascript" defer src="js/script.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="js/carouseljquery.js"></script>
+
 </head>
 <body>
 
@@ -69,7 +73,7 @@
         <main id="main">
 
           <!-- Top Card Collection -->
-
+        <div class="top__card__container">
           <div class="card__container">
             <div class="card__title">
               <h1 class="card__heading">Good Evening</h1>
@@ -91,9 +95,30 @@
                 </div>
                 <i class="fas fa-circle"></i>
               </div>
-              
+
+              <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="images/imageCarousel/Group 12734.png" alt="Slide 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/imageCarousel/Group 12735.png" alt="Slide 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="images/imageCarousel/Group 12736.png" alt="Slide 3">
+                        </div>
+                    </div>
+                        <button class="carousel-control prev" ><div class="arrow">&#10094;</div></button>
+                        <button class="carousel-control next" ><div class="arrow">&#10095;</div></button>
+                    
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+
+            
 
           <!-- Common Card Containers  -->
 
