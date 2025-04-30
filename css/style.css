@@ -387,7 +387,6 @@ height: 30%;
 
 .card__collection{
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   background: var(--background-color-active);
   border-radius: 10px;
@@ -399,7 +398,6 @@ height: 30%;
 .card_top {
   display: flex;
   align-items: center;
-  background-color: #5759577a;
   border-radius: 10px;
   transition: all 250ms;
   height: 100%;
@@ -408,11 +406,6 @@ height: 30%;
   overflow: hidden;
 }
 
-.card_top:hover{
-  background-color: #575957;
-  cursor: pointer;
-  transform: scale(1.05);
-}
 
 .card_top > * {
   margin-right: 10px;
@@ -499,6 +492,7 @@ height: 30%;
 }
 .carousel-item img {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -575,6 +569,8 @@ height: 30%;
   .card__collection {
     flex-direction: column;
     height: auto;
+    flex-wrap: wrap;
+
   }
 
   .card_top {
