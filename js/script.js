@@ -5,7 +5,7 @@
 let {songs} = {
     "songs": [
         {
-            "name": "Eternal Youth",
+            "name": "Tung Tung Sahur ",
             "artist": "Rude",
             "location": "./assets/tungsahurofc.mp3",
             "image": "./images/content/tungsahur.jpg",
@@ -13,7 +13,7 @@ let {songs} = {
             "id": 0
         },
         {
-            "name": "Never Gonna Give You Up",
+            "name": "Tung Tung Sahur",
             "artist": "Rick Astely",
             "location": "./assets/tungsahurofc.mp3",
             "image": "./images/content/tungsahur.jpg",
@@ -21,8 +21,8 @@ let {songs} = {
             "id": 1
         },
         {
-            "name": "Keeping It",
-            "artist": "Sou",
+            "name": "Tung The Tung",
+            "artist": "Tung Tung",
             "location": "./assets/tungsahurofc.mp3",
             "image": "./images/content/tungsahur.jpg",
             "liked": false,
@@ -115,6 +115,10 @@ const createCard = (song) => {
         playerHead.style.display = "flex";
         currentSong = updatePlayer(song);
         playPauseFunc(currentSong);
+
+
+
+        
     }
 
     //Return the dynamic card element.
@@ -123,23 +127,43 @@ const createCard = (song) => {
 
 
 
+document.addEventListener("keydown", function(event) {
+    // Prevent default scrolling when Space is pressed
+    if (event.code === "Space") {
+        event.preventDefault();
+
+        if (currentSong.paused) {
+            currentSong.play();
+            playBtn.style.display = "none";
+            pauseBtn.style.display = "inline";
+        } else {
+            currentSong.pause();
+            playBtn.style.display = "inline";
+            pauseBtn.style.display = "none";
+        }
+    }
+});
+
+
 
 //Adds functionality to the play and pause buttons to play the current song.
 const playPauseFunc = (song) => {
     //Reinitialize the buttons.
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
-    
+  
+
+
     //When the play button is clicked, the song is played.
     playBtn.addEventListener("click", () => {
-        song.play();
+        currentSong.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline";
     });
     
     //When the pause button is clicked, the song is paused.
     pauseBtn.addEventListener("click", () => {
-        song.pause();
+        currentSong.pause();
         playBtn.style.display = "inline";
         pauseBtn.style.display = "none";
     });
@@ -194,6 +218,9 @@ const updatePlayer = ({name, artist, location, image, liked, id}) => {
     //Setting the new song for the global song object.
     currentSong.setAttribute("src", location);
 
+   
+    currentSong.play();
+
     //Getting the required elements from the player head.
     const songContainer = document.querySelector(".song");
     const artistContainer = document.querySelector(".artist");
@@ -205,8 +232,10 @@ const updatePlayer = ({name, artist, location, image, liked, id}) => {
     pauseBtn = document.getElementById("pauseBtn");
 
     //Setting the default to the player head pause and play buttons.
-    playBtn.style.display = "inline";
-    pauseBtn.style.display = "none";
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "inline";
+
+   
     
     //Adding the selected song details in the player head.
     songContainer.innerHTML = name;
@@ -297,7 +326,6 @@ document.addEventListener("DOMContentLoaded", async() => {
 const progressBar = document.getElementById('progressBar');
 
 function updateProgressBar() {
-    // Ensure currentSong is the actual audio being played
     if (currentSong.duration > 0) {
         const progress = (currentSong.currentTime / currentSong.duration) * 100;
         progressBar.value = progress;
@@ -309,3 +337,15 @@ function updateProgressBar() {
     document.getElementById('start-time').textContent = `${menit}:${detik}`;
 
 }
+
+
+function updateAudio() {
+    if (currentSong.duration > 0) {
+        var seekTime = (progressBar.value / 100) * currentSong.duration;
+        currentSong.currentTime = seekTime;
+    }
+}
+
+// Attach events element.addEventListener("eventType", functionToRun);
+progressBar.addEventListener("input", updateAudio);
+currentSong.addEventListener("timeupdate", updateProgressBar);
