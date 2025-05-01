@@ -282,7 +282,8 @@ height: 30%;
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:space-between;
+  
   background: #181818;
   color: #fff;
 }
@@ -354,7 +355,7 @@ height: 30%;
 }
 
 .speaker_line{
-  width: 50px;
+  width: 100px;
 }
   
 /* Main Body Section */
@@ -549,6 +550,8 @@ height: 30%;
 
 .card > img{
   width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
 }
 

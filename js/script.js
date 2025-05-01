@@ -7,71 +7,62 @@ let {songs} = {
         {
             "name": "Eternal Youth",
             "artist": "Rude",
-            "location": "./assets/Eternal.mp3",
-            "image": "./images/artist_image.jpeg",
+            "location": "./assets/tungsahurofc.mp3",
+            "image": "./images/content/tungsahur.jpg",
             "liked": true,
             "id": 0
         },
         {
             "name": "Never Gonna Give You Up",
             "artist": "Rick Astely",
-            "location": "./assets/NGGYU.mp3",
-            "image": "./images/content/nggyp.jpg",
+            "location": "./assets/tungsahurofc.mp3",
+            "image": "./images/content/tungsahur.jpg",
             "liked": false,
             "id": 1
         },
         {
             "name": "Keeping It",
             "artist": "Sou",
-            "location": "./assets/keepingIt.mp3",
-            "image": "./images/content/keepingIt.png",
+            "location": "./assets/tungsahurofc.mp3",
+            "image": "./images/content/tungsahur.jpg",
             "liked": false,
             "id": 2
         },
         {
             "name": "Eye of the Tiger",
             "artist": "Surviour",
-            "location": "./assets/eyeTiger.mp3",
-            "image": "./images/content/survivor.jpg",
+            "location": "./assets/tungsahurofc.mp3",
+            "image": "./images/content/tungsahur.jpg",
             "liked": false,
             "id": 3
         },
         {
             "name": "Kenny G Collection",
             "artist": "Kenny G",
-            "location": "./assets/kenny.mp3",
-            "image": "./images/content/kennyg.jpg",
+            "location": "./assets/tungsahurofc.mp3",
+            "image": "./images/content/tungsahur.jpg",
             "liked": false,
             "id": 4
         },
         {
             "name": "Noctornal",
             "artist": "The Midnight",
-            "location": "./assets/noctornal.mp3",
-            "image": "./images/content/noctornal.jpg",
+            "location": "./assetstungsahurofc.mp3",
+            "image": "./images/content/bombardino.jpg",
             "liked": true,
             "id": 5
         },
         {
             "name": "Unravel",
             "artist": "TK",
-            "location": "./assets/unravel.mp3",
-            "image": "./images/content/unravel.jpg",
+            "location": "./assets/tungsahurofc.mp3",
+            "image": "./images/content/tungsahur.jpg",
             "liked": false,
             "id": 6
         }
     ]
 };
 
-if(!localStorage.getItem("songs")){
-    localStorage.setItem("songs", JSON.stringify(songs))
-} else {
-    songs = JSON.parse(localStorage.getItem("songs"));
-}
-
-const updateStorage = () => {
-    localStorage.setItem("songs", JSON.stringify(songs))
-}
 
 // Getting required elemets, const to not allow reinitialization
 // let for reinitialization of that elements to update from DOM.
@@ -129,6 +120,9 @@ const createCard = (song) => {
     //Return the dynamic card element.
     return card;
 }
+
+
+
 
 //Adds functionality to the play and pause buttons to play the current song.
 const playPauseFunc = (song) => {
@@ -234,11 +228,28 @@ const updatePlayer = ({name, artist, location, image, liked, id}) => {
 
     //When the current song is loaded, set it's duration and add it 
     //to the end time element.
-    currentSong.onloadedmetadata = () => {
-        let duration = currentSong.duration;
-        duration = (duration/60).toPrecision(3) + "";
-        endTime.innerHTML = duration;
+    
+
+
+    currentSong.addEventListener('loadedmetadata', function() {
+        startendtime();
+    });
+
+    function startendtime (){
+
+            const menit = Math.floor(currentSong.duration/60);
+            const detik = Math.floor(currentSong.duration%60); 
+
+            document.getElementById('end_time').textContent = `${menit}:${detik}`;
+
+            console.log(currentSong)
     }
+
+   
+
+
+
+    currentSong.addEventListener('timeupdate', updateProgressBar);
 
     //Return the current song 
     return currentSong;
@@ -273,8 +284,28 @@ const updateCollection = () => {
     })
 }
 
+
+
+
 //Once the document if fully loaded, call the update collection function
 //and add the functionlity to the Spotify Clone.
 document.addEventListener("DOMContentLoaded", async() => {
     updateCollection();
 })
+
+
+const progressBar = document.getElementById('progressBar');
+
+function updateProgressBar() {
+    // Ensure currentSong is the actual audio being played
+    if (currentSong.duration > 0) {
+        const progress = (currentSong.currentTime / currentSong.duration) * 100;
+        progressBar.value = progress;
+    }
+
+    const menit = Math.floor(currentSong.currentTime/60);
+    const detik = Math.floor(currentSong.currentTime%60); 
+
+    document.getElementById('start-time').textContent = `${menit}:${detik}`;
+
+}
