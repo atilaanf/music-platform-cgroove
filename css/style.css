@@ -21,13 +21,13 @@
     --background-color-active: #282828;
     --text-inactive: #121212;
 }
-
-body{
-  font-family: "Lato", sans-serif;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(61, 148, 128)20%, rgb(66, 126, 146) 50%);
-
+html, body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  height: auto;
+  background: linear-gradient(0deg, #030A1C, #000103 20%, #124285 50%, #4c5f85 80%, #11244A);
 }
 
 a{
@@ -88,22 +88,12 @@ height: 30%;
 
 /* content */
 #content{
-    
     width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100%;
-    overflow-y: scroll;
 
 }
 
-#content::-webkit-scrollbar{
-  width: 10px;
-}
-
-#content::-webkit-scrollbar-thumb{
-  background-color: #fff5;
-}
 
 #logo{
   width: clamp(100px, 100%,150px);
@@ -362,37 +352,16 @@ height: 30%;
 /* includes, card collection and cards styling */
 
 #main{
-  padding: 1em;
-  margin-top: 10%;
   color: #fff;
-}
-
-.top__card__container{
-  display: flex;
-}
-.card__container{
-  padding: 1em;
-
-}
-
-.card__title{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.card__title p{
-  color: rgb(139, 139, 139);
-  cursor: pointer;
 }
 
 .card__collection{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: var(--background-color-active);
   border-radius: 10px;
   width: 100%;
-  height: 50vh;
+  height: 35vh;
   padding: 10px;
 }
 
@@ -402,7 +371,7 @@ height: 30%;
   border-radius: 10px;
   transition: all 250ms;
   height: 100%;
-  width: 50%; 
+  width: 100%; 
   box-sizing: border-box;
   overflow: hidden;
 }
@@ -439,14 +408,8 @@ height: 30%;
   background-color: rgba(149, 17, 17, 0.333);
 }
 
-.card_top .fa-circle{
-  color: blue;
-  margin-left: auto;
-}
-
 .card__collection_main{
   display: flex;
-  margin-right: 15px;
   align-items: center;
   overflow-x: scroll; 
   /* biar bisa scroll kalau overflow */
@@ -462,15 +425,15 @@ height: 30%;
 /* Carousel */
 /* Carousel Container */
 .carousel-container {
-  max-width: 800px;
+  width: 100%;
   height: 100%;
   overflow: hidden;
-  border-radius: 20px;
   
 }
 
 /* Carousel */
 .carousel {
+  margin: 95px 0 0 0;
   display: flex;
   position: relative;
 }
@@ -493,51 +456,91 @@ height: 30%;
 }
 .carousel-item img {
   width: 100%;
-  height: auto;
+  height: 500px;
   display: block;
+  object-fit: cover;
 }
+.masked-image {
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
 
 /* Navigation Buttons */
 .carousel-control {
   position: absolute;
-  top: 43%;
+  top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background: none;
   border: none;
-  border-radius: 100%;
   cursor: pointer;
   font-size: 24px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
+  z-index: 10;
 }
 
 .carousel-control.prev {
   left: 20px;
 }
-.arrow{
-  padding: 11px;
-  font-size: 14px;
-}
 
 .carousel-control.next {
   right: 20px;
 }
+.arrow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 300ms ease;
+}
+#left-arrow{
+  padding: 5px 15px 5px 10px;
+}
+#right-arrow{
+  padding: 5px 10px 5px 15px;
+}
 
-
-.carousel-control:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-  transform: translateY(-50%) scale(1.1);
+.carousel-control:hover .arrow {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 100%;
 }
 
 .carousel-control:active {
-  background-color: rgba(0, 0, 0, 1); 
   transform: translateY(-50%) scale(0.9);
-  transition: all 300ms ease;
+}
+
+.carousel_header_content{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  top: 40%;
+}
+.carousel_header_content_title{
+  font-size: 2.5rem;
+
+}
+.carousel_header_content_description{
+  font-size: 1.5rem;
+}
+.carousel_header_content img{
+  width: 50px;
+}
+
+.card__title{
+  margin: 15px;
+  color: #fff;
 }
 .card{
   border-radius: 10px;
   padding: 1em;
   background-color: #21212170;
+  color: #fff;
   margin: 15px;
   transition: all 250ms;
 }
@@ -552,7 +555,6 @@ height: 30%;
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 #pauseBtn{
@@ -563,7 +565,7 @@ height: 30%;
 /* Removes the sidebar, adjusts the player head and makes some  */
 /* changes to the scale of the cards. */
 
-@media(max-width: 800px){
+@media(max-width: 1000px){
 
 
   #content{
@@ -578,13 +580,10 @@ height: 30%;
 
   .card_top {
     width: 100%;
-    margin-bottom: 1em;
   }
 
 
-  .card_top, .card{
-    transform: scale(0.8);
-  }
+
 
   #player__cta{
     display: none;
@@ -612,3 +611,4 @@ height: 30%;
     justify-content: center;
   }
 }
+
