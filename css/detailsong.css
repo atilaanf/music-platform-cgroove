@@ -1,0 +1,19 @@
+* {
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.lyrics-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.lyrics-line {
+    margin-bottom: 10px;
+}
