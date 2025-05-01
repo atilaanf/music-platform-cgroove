@@ -21,13 +21,13 @@
     --background-color-active: #282828;
     --text-inactive: #121212;
 }
-
-body{
-  font-family: "Lato", sans-serif;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(0deg, rgb(87, 143, 202), rgb(61, 148, 128)20%, rgb(66, 126, 146) 50%);
-
+html, body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  height: auto;
+  background: linear-gradient(0deg, #030A1C, #000103 20%, #124285 50%, #4c5f85 80%, #11244A);
 }
 
 a{
@@ -459,6 +459,15 @@ height: 30%;
   display: block;
   object-fit: cover;
 }
+.masked-image {
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
 
 /* Navigation Buttons */
 .carousel-control {
@@ -499,7 +508,6 @@ height: 30%;
 }
 
 .carousel-control:active {
-  background-color: rgba(0, 0, 0, 1); 
   transform: translateY(-50%) scale(0.9);
 }
 
@@ -600,3 +608,4 @@ height: 30%;
     justify-content: center;
   }
 }
+
