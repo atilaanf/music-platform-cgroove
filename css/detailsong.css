@@ -21,7 +21,9 @@ main {
     background-color: maroon;
     display: grid;
     padding: 10px;
-    grid-template-areas: "image title";
+    grid-template-areas:
+        "back back"
+        "image title";
     grid-template-columns: 1fr 3fr;
 }
 
@@ -31,6 +33,32 @@ main {
     justify-content: center;
     margin-right: 10px;
     position: relative;
+}
+
+.back-home-container {
+    grid-area: back;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.back-home-container a {
+    color: white;
+    font-size: 0.9em;
+    background-color: transparent;
+    padding: 6px 12px;
+    border: 1px solid white;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+
+}
+
+.back-home-container a:hover {
+    color: black;
+    font-weight: bold;
+    scale: 1.1;
+
 }
 
 .title-section .song-information {
@@ -56,6 +84,11 @@ main {
     color: white;
     font-size: 0.99em;
 
+}
+
+.song-author a:hover {
+    color: black;
+    font-weight: bold;
 }
 
 
@@ -110,15 +143,21 @@ main {
 @media screen and (max-width: 800px) {
     .title-section {
         grid-template-areas:
+            "back"
             "image"
             "title";
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 15px;
     }
 
-    .title-section .song-img-container img {
-        max-width: 100%;
-        height: auto;
+    .back-home-container {
+        margin: 0 auto 10px;
+        text-align: center;
+    }
+
+    .song-img-container {
+        margin-bottom: 15px;
     }
 
     .song-title {
@@ -127,14 +166,20 @@ main {
 
     .song-author a,
     .brief-desc {
-        font-size: 1em;
+        font-size: 0.95em;
+        padding: 0 10px;
     }
 
     .lyrics-container {
-        padding: 10px;
+        padding: 20px 10px;
     }
 
     .lyrics-section {
-        padding: 0 15px;
+        padding: 0 10px;
+    }
+
+    .lyrics-line {
+        padding-left: 0;
+        font-size: 1em;
     }
 }
