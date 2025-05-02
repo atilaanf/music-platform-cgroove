@@ -1,67 +1,16 @@
-//An array of objects, where each object is a song. 
-// {songs} means destructuring the ojbect from the right.
-//Note: the destructing should be key specific. 
-//If songs is an key in the object, then only it will get the songs array.
-let {songs} = {
-    "songs": [
-        {
-            "name": "Eternal Youth",
-            "artist": "Rude",
-            "location": "./assets/tungsahurofc.mp3",
-            "image": "./images/content/tungsahur.jpg",
-            "liked": true,
-            "id": 0
-        },
-        {
-            "name": "Never Gonna Give You Up",
-            "artist": "Rick Astely",
-            "location": "./assets/tungsahurofc.mp3",
-            "image": "./images/content/tungsahur.jpg",
-            "liked": false,
-            "id": 1
-        },
-        {
-            "name": "Keeping It",
-            "artist": "Sou",
-            "location": "./assets/tungsahurofc.mp3",
-            "image": "./images/content/tungsahur.jpg",
-            "liked": false,
-            "id": 2
-        },
-        {
-            "name": "Eye of the Tiger",
-            "artist": "Surviour",
-            "location": "./assets/tungsahurofc.mp3",
-            "image": "./images/content/tungsahur.jpg",
-            "liked": false,
-            "id": 3
-        },
-        {
-            "name": "Kenny G Collection",
-            "artist": "Kenny G",
-            "location": "./assets/tungsahurofc.mp3",
-            "image": "./images/content/tungsahur.jpg",
-            "liked": false,
-            "id": 4
-        },
-        {
-            "name": "Noctornal",
-            "artist": "The Midnight",
-            "location": "./assetstungsahurofc.mp3",
-            "image": "./images/content/bombardino.jpg",
-            "liked": true,
-            "id": 5
-        },
-        {
-            "name": "Unravel",
-            "artist": "TK",
-            "location": "./assets/tungsahurofc.mp3",
-            "image": "./images/content/tungsahur.jpg",
-            "liked": false,
-            "id": 6
-        }
-    ]
-};
+let songs = null;
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const response = await fetch('songs.json');
+        const data = await response.json();
+        songs = data;
+        console.log(songs); // Make sure the data is loaded
+        updateCollection(); // Only call this after songs is populated
+    } catch (error) {
+        console.error("Error loading songs.json:", error);
+    }
+});
 
 
 // Getting required elemets, const to not allow reinitialization
@@ -111,7 +60,7 @@ const createCard = (song) => {
     card.append(img, cardInfo);
 
     //Adding functionality to the card to update the player head on click
-    card.onclick = function(){
+    card.onclick = function () {
         playerHead.style.display = "flex";
         currentSong = updatePlayer(song);
         playPauseFunc(currentSong);
@@ -129,14 +78,14 @@ const playPauseFunc = (song) => {
     //Reinitialize the buttons.
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
-    
+
     //When the play button is clicked, the song is played.
     playBtn.addEventListener("click", () => {
         song.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline";
     });
-    
+
     //When the pause button is clicked, the song is paused.
     pauseBtn.addEventListener("click", () => {
         song.pause();
@@ -165,19 +114,19 @@ const likeSong = (id, likeBtn, songName) => {
     //Check if the global song object is liked or not
     //if liked before, then unlike it, change color of like button
     //and remove that song from the liked songs collection.
-    if(songs[id].liked){
+    if (songs[id].liked) {
         songs[id].liked = false;
         likeBtn.style.color = "grey";
         likedSongs.forEach(songCard => {
             const name = songCard.lastChild.firstChild.innerHTML;
-            if(name == songName){
+            if (name == songName) {
                 songCard.style.display = "none";
                 songCard.remove();
             }
         });
-    //If song is not liked, then like the song,
-    //change the color of like button
-    //and add that song in the liked song collection.
+        //If song is not liked, then like the song,
+        //change the color of like button
+        //and add that song in the liked song collection.
     } else {
         songs[id].liked = true;
         likeBtn.style.color = "red";
@@ -187,7 +136,7 @@ const likeSong = (id, likeBtn, songName) => {
 }
 
 //update the player head whenever a new song is clicked. 
-const updatePlayer = ({name, artist, location, image, liked, id}) => {
+const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     //The arugument of the function is a song object
     //We are destructuing it in the arguments directly and using it.
 
@@ -201,51 +150,76 @@ const updatePlayer = ({name, artist, location, image, liked, id}) => {
     const artistImage = document.querySelector(".artist_image");
     const endTime = document.getElementById("end_time");
 
+
+    //change song title into a clickable link
+    songContainer.innerHTML = '';
+    const songLink = document.createElement('a');
+    songLink.href = 'detailSong.html?id=' + id;
+    songLink.className = 'player-song-link'
+    songLink.textContent = name;
+    songContainer.appendChild(songLink);
+
+
+    artistContainer.innerHTML = artist;
+    artistImage.src = image;
+
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
 
     //Setting the default to the player head pause and play buttons.
     playBtn.style.display = "inline";
     pauseBtn.style.display = "none";
-    
-    //Adding the selected song details in the player head.
-    songContainer.innerHTML = name;
-    artistContainer.innerHTML = artist;
-    artistImage.src = image;
-    
+
+    //Adding other the selected song details in the player head.
+
+
     //Assign the id of the song to the button,
     //Check is song is liked and add the color based on song.liked.
     likeBtn.id = id;
     likeBtn.style.color = "grey";
-    if(liked){
+    if (liked) {
         likeBtn.style.color = "red";
     }
 
     //Adding a onclick functionlity to the like button.
     likeBtn.onclick = function () {
         likeSong(likeBtn.id, likeBtn, name);
-    }   
+    }
+
+
+    songLink.onclick = (e) => {
+
+        //save playback before navigate
+        localStorage.setItem('playerState', JSON.stringify({
+            currentTime: currentSong.currentTime,
+            isPlaying: !currentSong.paused,
+            volume: currentSong.volume
+        }));
+        localStorage.setItem("selectedSongId", id);
+
+
+    }
+
+
 
     //When the current song is loaded, set it's duration and add it 
     //to the end time element.
-    
 
-
-    currentSong.addEventListener('loadedmetadata', function() {
+    currentSong.addEventListener('loadedmetadata', function () {
         startendtime();
     });
 
-    function startendtime (){
+    function startendtime() {
 
-            const menit = Math.floor(currentSong.duration/60);
-            const detik = Math.floor(currentSong.duration%60); 
+        const menit = Math.floor(currentSong.duration / 60);
+        const detik = Math.floor(currentSong.duration % 60);
 
-            document.getElementById('end_time').textContent = `${menit}:${detik}`;
+        document.getElementById('end_time').textContent = `${menit}:${detik}`;
 
-            console.log(currentSong)
+        console.log(currentSong)
     }
 
-   
+
 
 
 
@@ -265,20 +239,20 @@ const updateCollection = () => {
     cardCollection.forEach((collection, index) => {
         //First collection is always for liked songs, so put
         //liked songs alone in that collection.
-        if(index === 0){
+        if (index === 0) {
             songs.forEach((song) => {
-                if(song.liked){
+                if (song.liked) {
                     collection.append(createCard(song))
                 }
             })
-        //all other collections put all songs.
+            //all other collections put all songs.
         } else {
             songs.forEach((song) => {
                 collection.append(createCard(song));
             });
         }
         //for every odd collection, reverse the order of the collection.
-        if(index%2 !== 0){
+        if (index % 2 !== 0) {
             collection.classList.toggle("reverse");
         }
     })
@@ -289,7 +263,7 @@ const updateCollection = () => {
 
 //Once the document if fully loaded, call the update collection function
 //and add the functionlity to the Spotify Clone.
-document.addEventListener("DOMContentLoaded", async() => {
+document.addEventListener("DOMContentLoaded", async () => {
     updateCollection();
 })
 
@@ -303,11 +277,9 @@ function updateProgressBar() {
         progressBar.value = progress;
     }
 
-    const menit = Math.floor(currentSong.currentTime/60);
-    const detik = Math.floor(currentSong.currentTime%60); 
+    const menit = Math.floor(currentSong.currentTime / 60);
+    const detik = Math.floor(currentSong.currentTime % 60);
 
     document.getElementById('start-time').textContent = `${menit}:${detik}`;
 
 }
-
-
