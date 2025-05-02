@@ -309,3 +309,5 @@ function updateProgressBar() {
     document.getElementById('start-time').textContent = `${menit}:${detik}`;
 
 }
+
+

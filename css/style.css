@@ -38,14 +38,21 @@ a{
 /* Topbar Styling */
 #topbar{
     width: 100%;
-    padding: 5px;
     display: flex;
+    align-items: center;
     gap: 20px;
     position:fixed;
     justify-content: space-evenly;
     background: var(--background-color-topbar) ;
     align-items: center;
     z-index: 999;
+}
+.topbar-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
 }
 
 .profile{
@@ -68,7 +75,7 @@ height: 30%;
 .imgcontainer{
 
   display: flex;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   align-items: center;
   justify-content: center;
@@ -106,19 +113,22 @@ height: 30%;
     margin: 20px 10px;
 }
 
-#navigation, #cta{
+#navigation{
     display: flex;
-    width: 60%;
+    width: 100%;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 15px 10px;
     color: var(--text-inactive);
     font-size: 120%;
 
+
+}
+.hamburger{
+  display: none;
 }
 
 .dropdown-menu{
-
   position: absolute;
   list-style: none;  /* Removes bullet points */
   padding: 0;  /* Removes default padding */
@@ -200,45 +210,6 @@ height: 30%;
     margin-left: 15px;
 }
 
-.cta_item{
-    margin: 5px 0;
-    padding: 10px 10px;
-    border-radius: 5px;
-    opacity: 0.8;
-    display: flex;
-    align-items: center;
-    transition: all 250ms;
-}
-
-.cta_item:hover{
-    opacity: 1;
-    background: var(--background-color-active);
-}
-
-.cta__icon{
-    margin-right: 15px;
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
-    width: fit-content;
-}
-
-#plus{
-    background: #808080;
-}
-
-#heart{
-    background: linear-gradient(125deg, purple, white);
-}
-
-#podcast{
-    background: #006450;
-    color: #17BD5C;
-}
-
-.line{
-    margin: 15px 0;
-}
 
 
 #bottom{
@@ -460,6 +431,21 @@ height: 30%;
   display: block;
   object-fit: cover;
 }
+.carousel-item p{
+  font-size: 20px;
+  text-decoration: underline;
+  text-underline-offset: 15px;
+  text-align: center;
+  text-wrap: wrap;
+  display: flex;
+  position: relative;
+  width: 100%;
+  transition: all 500ms ease-in-out;
+  justify-content: center;
+  align-items: center;
+  bottom: 100px;
+  z-index: 999;
+}
 .masked-image {
   -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
@@ -504,7 +490,7 @@ height: 30%;
 }
 
 .carousel-control:hover .arrow {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #12428552;
   border-radius: 100%;
 }
 
@@ -565,12 +551,172 @@ height: 30%;
 /* Removes the sidebar, adjusts the player head and makes some  */
 /* changes to the scale of the cards. */
 
-@media(max-width: 1000px){
+@media(max-width: 800px){
+  #topbar{
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 10px;
+    position:fixed;
+    background: var(--background-color-topbar) ;
+    z-index: 999;
 
+  }
+  .topbar-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
   #content{
     width: 100%;
   }
+
+    
+  #logo{
+    width: 100px;
+
+  }
+
+  #logo > img{
+      cursor: pointer;
+      height: auto;
+      margin: 20px 10px;
+  }
+  .profile{
+    color: white;
+    border-radius: 10px;
+    min-width: 20%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    height: 30%;
+    order: 1;
+     
+    }
+    
+    .profile:hover{
+      background: var(--background-color-active);
+    }
+    
+    .imgcontainer{
+      display: flex;
+      width: 40px;
+      height: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .profile img{
+      border-radius: 50%;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      
+      
+    }
+    
+  #navigation{
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: space-evenly;
+      margin: 15px 10px;
+      color: var(--text-inactive);
+      font-size: 120%;
+      order: 2;
+      display: none;
+  }
+  .hamburger{
+    display: block;
+    order: 3;
+    font-size: 20px;
+  }
+
+  .dropdown-menu{
+    position: absolute;
+    list-style: none;  /* Removes bullet points */
+    padding: 0;  /* Removes default padding */
+    margin: 0;  /* Removes default margin */
+    background-color: var(--background-color-active);
+    left: 0;
+    width: 100%;
+    display: none;
+  }
+
+  .navigationsong:hover .dropdown-menu{
+    display: block;
+    transition: margin-right 2s ease-in-out;
+
+  }
+
+
+  .dropdown-menu a{
+    margin: 0;
+    padding: 0;
+  }
+
+  .dropdown-menu li{
+
+    margin: 10px 5px 10px 5px;
+  }
+
+
+
+  .navigationsong{
+
+    color: white;
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    opacity: 0.8;
+    transition: all 250ms;
+    position: relative;
+  }
+
+  .navigation_item{
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    opacity: 0.8;
+    transition: all 250ms;
+  }
+
+  .navigationsong:hover{
+    background: var(--background-color-active);
+    opacity: 1;
+
+    
+  }
+
+  .navigationsong > span{
+    margin-left: 15px;
+  }
+
+
+  .navigation_item{
+    
+      margin: 5px 0;
+      padding: 10px 15px;
+      border-radius: 5px;
+      opacity: 0.8;
+      transition: all 250ms;
+  }
+
+  .navigation_item:hover{
+      background: var(--background-color-active);
+      opacity: 1;
+  }
+
+  .navigation_item > span{
+      margin-left: 15px;
+  }
+
   .card__collection {
     flex-direction: column;
     height: auto;

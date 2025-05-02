@@ -23,9 +23,24 @@
   <!-- Sidebar -->
 
   <div id="topbar">
+    <div class="topbar-row">
       <div id="logo">
           <img src="images/logo.png" alt="spotify logo" />
       </div>
+      
+      <div class="profile">
+
+        <div class="imgcontainer">
+          <img src="/images/pp.jpg" alt="">
+        </div>
+        
+        <p>Alfons</p>
+      </div>
+      <a href="javascript:void(0);" class="hamburger" onclick="openHamburger()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+      
       <div id="navigation">
           <a href="#" class="navigation_item">
               <i class="fas fa-home"></i> 
@@ -39,24 +54,15 @@
               <i class="fas fa-grip-lines-vertical"></i> 
               <span>Song Collection</span>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Pop</a></li>
-                    <li><a href="#">Pop</a></li>
-                    <li><a href="#">K-Pop</a></li>
+                    <li><a href="#pop">Pop</a></li>
+                    <li><a href="#rnb">R&B</a></li>
+                    <li><a href="#kpop">K-Pop</a></li>
                 </ul>
 
               </div>
         
       </div>
 
-      <div class="profile">
-
-        <div class="imgcontainer">
-          <img src="/images/pp.jpg" alt="">
-        </div>
-        
-        <p>Alfons</p>
-      </div>
-      
           
           
       
@@ -79,12 +85,15 @@
                   <div class="carousel-inner">
                       <div class="carousel-item active">
                           <img class="masked-image" src="images/imageCarousel/Group 12734.png" alt="Slide 1">
+                          <p>Song : Blue Sky - Atila Gee</p>
                       </div>
                       <div class="carousel-item">
                           <img class="masked-image" src="images/imageCarousel/Group 12735.png" alt="Slide 2">
+                          <p>Song : Party All Night - Will Tennyson</p>
                       </div>
                       <div class="carousel-item">
                           <img class="masked-image" src="images/imageCarousel/Group 12736.png" alt="Slide 3">
+                          <p>Song : Reckless Love - Johnny Bins</p>
                       </div>
                   </div>
                       <button class="carousel-control prev" ><div class="arrow" id="left-arrow"><img src="./images/imageCarousel/left-arrow.png" alt=""></button>
@@ -111,31 +120,31 @@
 
             <!-- Card Collection, music content is added dynamically with JavaScript -->
 
-            <div class="card__collection_main"></div>
+            <div class="card__collection_main" id="pop"></div>
           </div>
           <div class="card__container">
             <div class="card__title">
-              <h1 class="card__heading">Your Collection</h1>
+              <h1 class="card__heading">Pop Songs</h1>
               <p>SEE ALL</p>
             </div>
 
             <!-- Card Collection, music content is added dynamically with JavaScript -->
 
-            <div class="card__collection_main"></div>
+            <div class="card__collection_main" id="rnb"></div>
           </div>
           <div class="card__container">
             <div class="card__title">
-              <h1 class="card__heading">Your Songs</h1>
+              <h1 class="card__heading">R&B Songs</h1>
               <p>SEE ALL</p>
             </div>
 
             <!-- Card Collection, music content is added dynamically with JavaScript -->
 
-            <div class="card__collection_main"></div>
+            <div class="card__collection_main" id="kpop"></div>
           </div>
           <div class="card__container">
             <div class="card__title">
-              <h1 class="card__heading">Your Collection</h1>
+              <h1 class="card__heading">KPOP Songs</h1>
               <p>SEE ALL</p>
             </div>
 
