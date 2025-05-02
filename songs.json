@@ -7,6 +7,7 @@
         "liked": true,
         "id": 0,
         "description": "a bright and lively 'color pop' song in the synth-pop genre with influences from Motown, reggae and arena pop.",
+        "genre": "kpop",
         "lyrics": [
             {
                 "section": "Verse 1",
@@ -43,6 +44,7 @@
         "liked": false,
         "id": 1,
         "description": "a song about the internal struggle of someone who wants to express their feelings to a crush but is too shy to do so",
+        "genre": "kpop",
         "lyrics": [
             {
                 "section": "Verse 1",
@@ -85,21 +87,21 @@
         ]
     },
     {
-        "name": "Keeping It",
-        "artist": "Sou",
+        "name": "Tung Tung Sahur",
+        "artist": "noxa",
         "location": "./assets/tungsahurofc.mp3",
         "image": "./images/content/tungsahur.jpg",
         "liked": false,
         "id": 2,
-        "description": "A chill electronic track about maintaining what's important",
+        "description": "Brain rot song",
+        "genre": "pop",
         "lyrics": [
             {
                 "section": "Verse 1",
                 "lines": [
-                    "Day by day, I keep it going",
-                    "All the pieces in their place",
-                    "Never stopping, always knowing",
-                    "This is more than just a race"
+                    "tung tung sahur",
+                    "tung tung sahur",
+                    "tung tung sahur"
                 ]
             }
         ]
