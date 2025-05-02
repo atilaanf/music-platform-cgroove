@@ -1,11 +1,64 @@
 * {
     font-size: 18px;
     box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+
 }
 
-.lyrics-section {
-    margin-bottom: 30px;
+body {
+    background-color: white;
+    width: 100%;
 }
+
+main {
+    width: 100%;
+}
+
+.title-section {
+    width: 100%;
+    height: auto;
+    background-color: maroon;
+    display: grid;
+    padding: 10px;
+    grid-template-areas: "image title";
+    grid-template-columns: 1fr 3fr;
+}
+
+.title-section .song-img-container {
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+    position: relative;
+}
+
+.title-section .song-information {
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.song-information span {
+    margin-bottom: 20px;
+}
+
+.title-section .song-title {
+    color: white;
+    font-size: 2.5em;
+
+
+}
+
+.song-author a,
+.brief-desc {
+    color: white;
+    font-size: 0.99em;
+
+}
+
+
 
 .section-title {
     font-weight: bold;
@@ -14,6 +67,74 @@
     font-size: 1.1em;
 }
 
+/* lyrics */
+.lyrics-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.lyrics-section {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
 .lyrics-line {
     margin-bottom: 10px;
+    line-height: 1.8;
+    padding-left: 20px;
+    position: relative;
+}
+
+.lyrics-line::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    color: maroon;
+}
+
+::selection {
+    background-color: #ffcc00;
+    color: black;
+}
+
+@media screen and (max-width: 800px) {
+    .title-section {
+        grid-template-areas:
+            "image"
+            "title";
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .title-section .song-img-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .song-title {
+        font-size: 2em;
+    }
+
+    .song-author a,
+    .brief-desc {
+        font-size: 1em;
+    }
+
+    .lyrics-container {
+        padding: 10px;
+    }
+
+    .lyrics-section {
+        padding: 0 15px;
+    }
 }

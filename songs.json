@@ -1,0 +1,217 @@
+[
+    {
+        "name": "YES or YES",
+        "artist": "TWICE",
+        "location": "./assets/yesoryes.mp3",
+        "image": "./images/content/yesoryes.jpg",
+        "liked": true,
+        "id": 0,
+        "description": "a bright and lively 'color pop' song in the synth-pop genre with influences from Motown, reggae and arena pop.",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "Hey, boy",
+                    "Look, I'm gonna make this simple for you",
+                    "You got two choices",
+                    "Yes or yes?"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "내가 이렇게도 이기적이었던가",
+                    "뭔가 이렇게 갖고 싶던 적 있었나 (있었나)",
+                    "다 놀라 (다 놀라) 내 뻔뻔함에",
+                    "Come on and tell me yes"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "Ah 둘 중에 하나만 골라 yes or yes?",
+                    "Ah-ah 하나만 선택해 어서 yes or yes?"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Super Shy",
+        "artist": "New Jeans",
+        "location": "./assets/supshy.mp3",
+        "image": "./images/content/supershy.jpg",
+        "liked": false,
+        "id": 1,
+        "description": "a song about the internal struggle of someone who wants to express their feelings to a crush but is too shy to do so",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "And I wanna go out with you, where you wanna go? (Huh?)",
+                    "Find a lil' spot, just sit and talk",
+                    "Looking pretty, follow me, 우리 둘이 나란히",
+                    "보이지? 내 눈이 갑자기 빛나지 when you say I'm your dream",
+                    "You don't even know my name, do you?",
+                    "You don't even know my name, do you?"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "나 원래 말도 잘하고 그런데 왜 이런지?",
+                    "I don't like that",
+                    "Something odd about you, yeah, you're special and you know it",
+                    "You're the top, babe"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "I'm super shy, super shy",
+                    "But wait a minute while I make you mine, make you mine",
+                    "떨리는 지금도 you're on my mind all the time",
+                    "I wanna tell you, but I'm super shy, super shy"
+                ]
+            },
+            {
+                "section": "Outro",
+                "lines": [
+                    "You don't even know my name (super shy, super shy)",
+                    "Do you? (Make you mine, make you mine)",
+                    "You don't even know my name (you're on my mind all the time, I wanna tell you)",
+                    "Do you? (But I'm super shy, I'm super shy)"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Keeping It",
+        "artist": "Sou",
+        "location": "./assets/tungsahurofc.mp3",
+        "image": "./images/content/tungsahur.jpg",
+        "liked": false,
+        "id": 2,
+        "description": "A chill electronic track about maintaining what's important",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "Day by day, I keep it going",
+                    "All the pieces in their place",
+                    "Never stopping, always knowing",
+                    "This is more than just a race"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Eye of the Tiger",
+        "artist": "Survivor",
+        "location": "./assets/tungsahurofc.mp3",
+        "image": "./images/content/tungsahur.jpg",
+        "liked": false,
+        "id": 3,
+        "description": "The classic motivational rock anthem from Rocky III",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "Risin' up, back on the street",
+                    "Did my time, took my chances",
+                    "Went the distance, now I'm back on my feet",
+                    "Just a man and his will to survive"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "It's the eye of the tiger",
+                    "It's the thrill of the fight",
+                    "Risin' up to the challenge of our rival",
+                    "And the last known survivor",
+                    "Stalks his prey in the night",
+                    "And he's watchin' us all with the eye of the tiger"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Kenny G Collection",
+        "artist": "Kenny G",
+        "location": "./assets/tungsahurofc.mp3",
+        "image": "./images/content/tungsahur.jpg",
+        "liked": false,
+        "id": 4,
+        "description": "Smooth jazz instrumentals perfect for relaxation",
+        "lyrics": []
+    },
+    {
+        "name": "Nocturnal",
+        "artist": "The Midnight",
+        "location": "./assetstungsahurofc.mp3",
+        "image": "./images/content/bombardino.jpg",
+        "liked": true,
+        "id": 5,
+        "description": "Synthwave track capturing the feeling of late night drives",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "City lights reflect in your eyes",
+                    "As we drive through the neon night",
+                    "Radio plays our favorite song",
+                    "This moment feels so right"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Unravel",
+        "artist": "TK",
+        "location": "./assets/tungsahurofc.mp3",
+        "image": "./images/content/tungsahur.jpg",
+        "liked": false,
+        "id": 6,
+        "description": "Emotional rock ballad about falling apart and rebuilding",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "All the words I couldn't say",
+                    "Pile up and fade away",
+                    "Every promise that I made",
+                    "Now just memories decay"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "DNA",
+        "artist": "Kendrick Lamar",
+        "location": "./assets/dna.mp3",
+        "image": "https://t2.genius.com/unsafe/325x325/https%3A%2F%2Fimages.genius.com%2Ff3f77222e1b615e0a10354ea6282ff22.1000x1000x1.png",
+        "liked": false,
+        "id": 7,
+        "description": "On 'DNA.,' Kendrick Lamar adopts multiple viewpoints; celebrating, critiquing, and exploring his black heritage and culture.",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "I got loyalty, got royalty inside my DNA",
+                    "Cocaine quarter piece, got war and peace inside my DNA",
+                    "I got power, poison, pain and joy inside my DNA",
+                    "I got hustle though, ambition, flow, inside my DNA"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "Tell me somethin', you mothafuckas can't tell me nothin'",
+                    "I'd rather die than to listen to you",
+                    "My DNA not for imitation",
+                    "Your DNA an abomination"
+                ]
+            }
+        ]
+    }
+]
