@@ -21,7 +21,9 @@ main {
     background-color: maroon;
     display: grid;
     padding: 10px;
-    grid-template-areas: "image title";
+    grid-template-areas:
+        "back back"
+        "image title";
     grid-template-columns: 1fr 3fr;
 }
 
@@ -31,6 +33,25 @@ main {
     justify-content: center;
     margin-right: 10px;
     position: relative;
+}
+
+.back-home-container {
+    grid-area: back;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+.back-home-container a {
+    color: white;
+    font-size: smaller;
+
+}
+
+.back-home-container a:hover {
+    color: black;
+    font-weight: bold;
+    scale: 1.1;
+    transition: all;
 }
 
 .title-section .song-information {
@@ -56,6 +77,11 @@ main {
     color: white;
     font-size: 0.99em;
 
+}
+
+.song-author a:hover {
+    color: black;
+    font-weight: bold;
 }
 
 
