@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background:#cdcdcf;
+    background: linear-gradient(0deg, #030A1C, #000103 30%, #124285 70%, #4c5f85 100%, #11244A);
   }
   
   a{

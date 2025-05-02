@@ -6,6 +6,7 @@
         <title>C'Groovy - About Us</title>
         <link rel="icon" href="images/icon.png" />
         <link rel="stylesheet" href="css/aboutUs.css">
+        <link rel="stylesheet" href="css/style.css">
         <link
         rel="stylesheet"
         href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -15,7 +16,49 @@
         <script type="application/javascript" defer src="js/script.js"></script>
     </head>
 <body>
-    <div class="About-History">
+    
+  <div id="topbar">
+    <div class="topbar-row">
+      <div id="logo">
+          <img src="images/logo.png" alt="spotify logo" />
+      </div>
+      
+      <div class="profile">
+
+        <div class="imgcontainer">
+          <img src="/images/pp.jpg" alt="">
+        </div>
+        
+        <p>Alfons</p>
+      </div>
+      <a href="javascript:void(0);" class="hamburger" onclick="openHamburger()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+      
+      <div id="navigation">
+          <a href="/index.html" class="navigation_item">
+              <i class="fas fa-home"></i> 
+              <span>Home</span>
+          </a>
+          <a href="#" class="navigation_item active_nav">
+              <i class="fas fa-search"></i> 
+              <span>About us</span>
+          </a>
+          <div href="#" class="navigationsong navigation_item">
+              <i class="fas fa-grip-lines-vertical"></i> 
+              <span>Song Collection</span>
+                <ul class="dropdown-menu">
+                    <li><a href="#pop">Pop</a></li>
+                    <li><a href="#rnb">R&B</a></li>
+                    <li><a href="#kpop">K-Pop</a></li>
+                </ul>
+
+              </div>
+      </div>
+  </div>
+
+    <div class="About-History masked-image">
     <div class="title">
         <h1 id="aboutUsTitle">About Us</h1>
     </div>
