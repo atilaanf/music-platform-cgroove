@@ -119,6 +119,7 @@ const playPauseFunc = (song) => {
     });
 }
 
+
 //Like and unlike the song and update the card collection for liked songs.
 const likeSong = (id, likeBtn, songName) => {
     //id - the id of the song, on which the button is clicked for.
@@ -143,10 +144,12 @@ const likeSong = (id, likeBtn, songName) => {
         songs[id].liked = false;
         likeBtn.style.color = "grey";
         likedSongs.forEach(songCard => {
-            const name = songCard.lastChild.firstChild.innerHTML;
+            const name = songCard.lastChild?.firstChild.innerHTML;
             if (name == songName) {
-                songCard.style.display = "none";
+                console.log("Comparing:", name, "with", songName);  // Log for debugging
+
                 songCard.remove();
+                
             }
         });
         //If song is not liked, then like the song,
@@ -156,9 +159,11 @@ const likeSong = (id, likeBtn, songName) => {
         songs[id].liked = true;
         likeBtn.style.color = "red";
         cardCollection[0].append(createCard(songs[id]));
+        
     }
     updateStorage();
 }
+
 
 //update the player head whenever a new song is clicked. 
 const updatePlayer = ({ name, artist, location, image, liked, id }) => {
@@ -195,8 +200,8 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     pauseBtn = document.getElementById("pauseBtn");
 
     //Setting the default to the player head pause and play buttons.
-    playBtn.style.display = "inline";
-    pauseBtn.style.display = "none";
+    playBtn.style.display = "none";
+    pauseBtn.style.display = "inline";
     
     //Adding the selected song details in the player head.
     songContainer.innerHTML = name;
@@ -312,3 +317,12 @@ function updateProgressBar() {
     document.getElementById('start-time').textContent = `${menit}:${detik}`;
 
 }
+
+
+progressBar.addEventListener('input', (event) => {
+    // Get the percentage of the progress bar (between 0 and 100)
+    const progressPercentage = event.target.value;
+
+    // Set the audio's current time based on the percentage
+    currentSong.currentTime = (currentSong.duration * progressPercentage) / 100;
+});
