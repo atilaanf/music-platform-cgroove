@@ -18,35 +18,43 @@
             <div class="register">
                 <h1>Hi There!</h1>
                 <p>Welcome to CGroovy, Find Your Favorite Tunes</p>
-                <form id="register-form">
-                    <div>
-                        <input type="text" id="name" placeholder="Name" name="name" required>
+                <form id="register-form" action="/">
+                    <div class="input-control">
+                        <input type="text" id="username" placeholder="Name" name="name" >
+                        <div class="error"></div>
                     </div>
                     
-                    <div>
-                        <input type="email" id="email" placeholder="Email" name="email" required>
+                    <div class="input-control">
+                        <input type="text" id="email" placeholder="Email" name="email">
+                        <div class="error"></div>
                     </div>
                     
-                    <div>
-                        <input type="password" id="password" placeholder="Password" name="password" required>
+                    <div class="input-control">
+                        <input type="password" id="password1" placeholder="Password" name="password">
+                        <div class="error"></div>
+                    </div>
+
+                    <div class="input-control">
+                        <input type="password" id="password2" placeholder="Password" name="password">
+                        <div class="error"></div>
                     </div>
         
-                    <div>
-                        <input type="number" id="age" placeholder="Age" name="age" required>
+                    <div class="input-control">
+                        <input type="number" id="age" placeholder="Age" name="age">
+                        <div class="error"></div>
                     </div>
         
-                    <div>
+                    <div id="gender-input-control">
                         <label for="gender">Gender:</label>
                         <div id="gender-field">
-                            <div>
-                                <input type="radio" id="Male" name="gender" value="Male">
+                            <div class="input-control">
+                                <input type="radio" id="male" name="gender" value="Male">
                                 <label for="Male">Male</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="Female" name="gender" value="Female">
+                                <input type="radio" id="female" name="gender" value="Female">
                                 <label for="Female">Female</label>
+                                <div class="error"></div>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
         
                     <button type="submit" id="register-btn">Register</button>
@@ -62,6 +70,6 @@
  
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>
