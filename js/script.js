@@ -19,9 +19,6 @@ const playerHead = document.getElementById("player");
 let playBtn = document.getElementById("playBtn");
 let pauseBtn = document.getElementById("pauseBtn");
 let cardCollection = document.querySelectorAll(".card__collection_main");
-let kpopSongsCard = document.querySelectorAll(".card__collection_main #kpop");
-let popSongsCard = document.querySelectorAll(".card__collection_main #pop");
-let rnbSongsCard = document.querySelectorAll(".card__collection_main #rnb");
 let currentSong = new Audio();
 
 //Player is hidden by default and is visible only when a song is clicked.
@@ -67,10 +64,6 @@ const createCard = (song) => {
         playerHead.style.display = "flex";
         currentSong = updatePlayer(song);
         playPauseFunc(currentSong);
-
-
-
-        
     }
 
     //Return the dynamic card element.
@@ -79,41 +72,23 @@ const createCard = (song) => {
 
 
 
-document.addEventListener("keydown", function(event) {
-    // Prevent default scrolling when Space is pressed
-    if (event.code === "Space") {
-        event.preventDefault();
-
-        if (currentSong.paused) {
-            currentSong.play();
-            playBtn.style.display = "none";
-            pauseBtn.style.display = "inline";
-        } else {
-            currentSong.pause();
-            playBtn.style.display = "inline";
-            pauseBtn.style.display = "none";
-        }
-    }
-});
-
-
 
 //Adds functionality to the play and pause buttons to play the current song.
 const playPauseFunc = (song) => {
     //Reinitialize the buttons.
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
-    
+
     //When the play button is clicked, the song is played.
     playBtn.addEventListener("click", () => {
-        currentSong.play();
+        song.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline";
     });
 
     //When the pause button is clicked, the song is paused.
     pauseBtn.addEventListener("click", () => {
-        currentSong.pause();
+        song.pause();
         playBtn.style.display = "inline";
         pauseBtn.style.display = "none";
     });
@@ -173,9 +148,6 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     //Setting the new song for the global song object.
     currentSong.setAttribute("src", location);
 
-   
-    currentSong.play();
-
     //Getting the required elements from the player head.
     const songContainer = document.querySelector(".song");
     const artistContainer = document.querySelector(".artist");
@@ -208,6 +180,12 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     artistContainer.innerHTML = artist;
     artistImage.src = image;
     
+    playBtn.style.display = "inline";
+    pauseBtn.style.display = "none";
+
+    //Adding other the selected song details in the player head.
+
+
     //Assign the id of the song to the button,
     //Check is song is liked and add the color based on song.liked.
     likeBtn.id = id;
@@ -267,31 +245,31 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
 //main function that calls all other functions.
 //updates the collection by creating the cards and adding them.
 const updateCollection = () => {
-    const kpopContainer = document.getElementById("kpop");
-    const popContainer = document.getElementById("pop");
-    const rnbContainer = document.getElementById("rnb");
-    const likedContainer = document.querySelector(".card__collection_main"); // Use querySelector instead of querySelectorAll
-
-    songs.forEach(song => {
-        const card = createCard(song);
-        if (song.liked) {
-            likedContainer.append(card);
+    //Reinitalize the collection to get the latest from DOM.
+    cardCollection = document.querySelectorAll(".card__collection_main");
+    //For all collections, using ForEach, we pass in the songs
+    //and create cards for each collection.
+    cardCollection.forEach((collection, index) => {
+        //First collection is always for liked songs, so put
+        //liked songs alone in that collection.
+        if (index === 0) {
+            songs.forEach((song) => {
+                if (song.liked) {
+                    collection.append(createCard(song))
+                }
+            })
+            //all other collections put all songs.
+        } else {
+            songs.forEach((song) => {
+                collection.append(createCard(song));
+            });
         }
-
-        switch (song.genre.toLowerCase()) {
-            case "kpop":
-                kpopContainer.append(card);  // Fixed: append to specific containers
-                break;
-            case "pop":
-                popContainer.append(card);  // Fixed: append to specific containers
-                break;
-            case "rnb":
-                rnbContainer.append(card);  // Fixed: append to specific containers
-                break;
+        //for every odd collection, reverse the order of the collection.
+        if (index % 2 !== 0) {
+            collection.classList.toggle("reverse");
         }
-    });
-};
-
+    })
+}
 
 
 
@@ -306,6 +284,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 const progressBar = document.getElementById('progressBar');
 
 function updateProgressBar() {
+    // Ensure currentSong is the actual audio being played
     if (currentSong.duration > 0) {
         const progress = (currentSong.currentTime / currentSong.duration) * 100;
         progressBar.value = progress;
