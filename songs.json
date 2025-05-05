@@ -107,82 +107,256 @@
         ]
     },
     {
-        "name": "Eye of the Tiger",
-        "artist": "Survivor",
-        "location": "./assets/tungsahurofc.mp3",
-        "image": "./images/content/tungsahur.jpg",
+        "name": "you!",
+        "artist": "LANY",
+        "location": "./assets/you-lany.mp3",
+        "image": "./images/content/lany-you.png",
         "liked": false,
         "id": 3,
-        "description": "The classic motivational rock anthem from Rocky III",
+        "description": "“You!” features Klein singing about someone who came into his life during a tough period and ended up becoming an essential part of it in various ways.",
+        "genre": "pop",
         "lyrics": [
             {
                 "section": "Verse 1",
                 "lines": [
-                    "Risin' up, back on the street",
-                    "Did my time, took my chances",
-                    "Went the distance, now I'm back on my feet",
-                    "Just a man and his will to survive"
+                    "One, two",
+                    "One, two, three",
+                    "Like water in the desert",
+                    "Impossible to find",
+                    "But you found me when I was broken",
+                    "Put me back together, gave me life"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "Like a flower in the concrete",
+                    "So beautiful and rare",
+                    "You gave me hope when I was empty",
+                    "Walked me through the fire, you were there"
                 ]
             },
             {
                 "section": "Chorus",
                 "lines": [
-                    "It's the eye of the tiger",
-                    "It's the thrill of the fight",
-                    "Risin' up to the challenge of our rival",
-                    "And the last known survivor",
-                    "Stalks his prey in the night",
-                    "And he's watchin' us all with the eye of the tiger"
+                    "You're the sun to the moon",
+                    "You're my ocean, painted blue",
+                    "You, I'm nothing without you (without you, without you)",
+                    "You're the light in the dark",
+                    "You're the arrow through my heart",
+                    "You, I'm nothing without you (oh-oh)",
+                    "I'm nothing without you (oh-oh)",
+                    "I'm nothing without you (oh-oh)",
+                    "I'm nothing without you",
+                    "I'm nothing without you",
+                    "I'm nothing without you",
+                    "I'm nothing without you",
+                    "I'm nothing without you"
+                ]
+            },
+            {
+                "section": "Verse 3",
+                "lines": [
+                    "Like an angel in a nightmare",
+                    "You opened up my eyes",
+                    "Lookin' in all the wrong places",
+                    "You're the one I needed this whole time"
+                ]
+            },
+            {
+                "section": "Bridge",
+                "lines": [
+                    "You're the air in my lungs",
+                    "You're the veins to my blood",
+                    "Yeah, you, I'm nothing without you"
+                ]
+            },
+            {
+                "section": "Outro",
+                "lines": [
+                    "You're the sun (the sun) to the moon (to the moon)",
+                    "You're my ocean, painted blue",
+                    "You, I'm nothing without you (oh, without you, without you)",
+                    "You're the light in the dark",
+                    "You're the arrow through my heart",
+                    "You, I'm nothing without you (oh-oh)",
+                    "I'm nothing without you (oh-oh)",
+                    "I'm nothing without you (oh-oh)",
+                    "I'm nothing without you"
                 ]
             }
         ]
     },
     {
-        "name": "Kenny G Collection",
-        "artist": "Kenny G",
-        "location": "./assets/tungsahurofc.mp3",
-        "image": "./images/content/tungsahur.jpg",
+        "name": "Blue Lights",
+        "artist": "Jorja Smith",
+        "location": "./assets/bluelights.mp3",
+        "image": "./images/content/bluelights.png",
         "liked": false,
         "id": 4,
-        "description": "Smooth jazz instrumentals perfect for relaxation",
-        "lyrics": []
-    },
-    {
-        "name": "Nocturnal",
-        "artist": "The Midnight",
-        "location": "./assetstungsahurofc.mp3",
-        "image": "./images/content/bombardino.jpg",
-        "liked": true,
-        "id": 5,
-        "description": "Synthwave track capturing the feeling of late night drives",
+        "description": "“Blue Lights” is Jorja Smith’s debut single, in which she challenges the idea of feeling guilty when you haven’t done anything wrong. The track features a fitting sample from Dizzee Rascal’s 2007 song “Sirens,” from his Maths + English album.",
+        "genre": "rnb",
         "lyrics": [
+            {
+                "section": "Intro",
+                "lines": [
+                    "I wanna turn those blue lights into strobe lights",
+                    "Not blue flashing lights, maybe fairy lights",
+                    "Those blue lights into strobe lights",
+                    "Maybe even fairy lights, not blue flashing lights"
+                ]
+            },
             {
                 "section": "Verse 1",
                 "lines": [
-                    "City lights reflect in your eyes",
-                    "As we drive through the neon night",
-                    "Radio plays our favorite song",
-                    "This moment feels so right"
+                    "Don't you run when you hear the sirens coming",
+                    "When you hear the sirens coming",
+                    "You better not run 'cause the sirens not coming for you",
+                    "What have you done?",
+                    "You went to school that day",
+                    "Was a bit late but"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "Gun crime into your right ear",
+                    "Drugs and violence into your left",
+                    "Default white headphones flooding the auditory",
+                    "Subconscious waves you accept",
+                    "You're sitting on the 4 back home",
+                    "Where you at, G? Answer your phone",
+                    "Paused the poison to answer his message",
+                    "Your boy sounds rushed, fears for his adolescence"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "(I wanna turn those blue lights) What have you done?",
+                    "(Into strobe lights) There's no need to run",
+                    "(Not blue flashing lights) If you've done nothing wrong",
+                    "(Maybe fairy lights) Blue lights should just pass you by"
                 ]
             }
         ]
     },
     {
-        "name": "Unravel",
-        "artist": "TK",
-        "location": "./assets/tungsahurofc.mp3",
-        "image": "./images/content/tungsahur.jpg",
+        "name": "TWENTIES",
+        "artist": "GIVEON",
+        "location": "./assets/20giveon.mp3",
+        "image": "./images/content/20giveon.png",
         "liked": false,
-        "id": 6,
-        "description": "Emotional rock ballad about falling apart and rebuilding",
+        "id": 5,
+        "description": "'TWENTIES' tells the story of wasted love during the titular years. The track kickstarts a new era for the American R&B singer, following up his 2022 debut album Give Or Take.",
+        "genre": "rnb",
         "lyrics": [
             {
                 "section": "Verse 1",
                 "lines": [
-                    "All the words I couldn't say",
-                    "Pile up and fade away",
-                    "Every promise that I made",
-                    "Now just memories decay"
+                    "How was I supposed to know",
+                    "This is how it's gonna go?",
+                    "Thought that if I put you first enough",
+                    "We would last for sure, last for sure (For sure)",
+                    "Remember our first kiss, was in a rental car",
+                    "Now I kinda wish it was a hit and run",
+                    "Crazy I let it get this far",
+                    "But I was just young and dumb"
+                ]
+            },
+            {
+                "section": "Pre Chorus",
+                "lines": [
+                    "Six years going down the drain",
+                    "I guess I'm half to blame",
+                    "I didn't know, I didn't know I'd be wasting my time"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "Spending my twenties on you (Oh)",
+                    "I poured my heart in it",
+                    "Don't get me started",
+                    "Spend my time wondering why",
+                    "I spent my twenties on you"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "Thought I was learning myself",
+                    "I was just learning you",
+                    "Is anything black and white",
+                    "When you're barely twenty-two?",
+                    "Clung onto you like a shirt to a sweater",
+                    "Hung onto you 'cause I didn't know better",
+                    "I just felt like time was runnin' out",
+                    "I could tell the ship was goin' down",
+                    "I was so young and dumb"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Good Days",
+        "artist": "SZA",
+        "location": "./assets/gd-sza.mp3",
+        "image": "./images/content/gd-sza.png",
+        "liked": false,
+        "id": 6,
+        "description": "In Good Days,SZA expresses a desire to let go of past hurts and present struggles. She’s trying to clear her mind, stop overthinking, and focus on healing and growth. The song reflects her inner conflict—wanting peace but still feeling weighed down by old memories. Despite that, she holds onto hope and looks forward to better days ahead.",
+        "genre": "rnb",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "Good day in my mind, safe to take a step out",
+                    "Get some air now, let yo' edge out",
+                    "Too soon, I spoke",
+                    "You be heavy in my mind, can you get the heck out?",
+                    "I need rest now, got me bummed out",
+                    "You so, you so, you",
+                    "Baby, baby, babe",
+                    "I've been on my empty mind shit"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "Tell me I'm not my fears, my limitations",
+                    "I disappear if you let me",
+                    "Feelin' like, yeah (On your own)",
+                    "Feelin' like Jericho",
+                    "Feelin' like Job when he lost his shit",
+                    "Gotta hold my own, my cross to bear alone, I",
+                    "Ooh, played and dipped, way to kill the mood",
+                    "Know you like that shit",
+                    "Can't groove it, ba-baby",
+                    "Heavy on my empty mind shit"
+                ]
+            },
+            {
+                "section": "Pre Chorus",
+                "lines": [
+                    "I try to keep from losin' the rest of me",
+                    "I worry that I wasted the best of me on you, babe",
+                    "You don't care",
+                    "Said, 'Not tryna be a nuisance, this is urgent",
+                    "Tryna make sense of loose change",
+                    "Got me a war in my mind",
+                    "Gotta let go of weight, can't keep what's holdin' me",
+                    "Choose to watch while the world break up in front of me"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "All the while, I'll await my armored fate with a smile",
+                    "Still wanna try, still believe in",
+                    "Good days, good days, always",
+                    "Always inside (Always in my mind, always in my mind, mind)",
+                    "Good day living in my mind"
                 ]
             }
         ]
@@ -195,6 +369,7 @@
         "liked": false,
         "id": 7,
         "description": "On 'DNA.,' Kendrick Lamar adopts multiple viewpoints; celebrating, critiquing, and exploring his black heritage and culture.",
+        "genre": "rnb",
         "lyrics": [
             {
                 "section": "Verse 1",
@@ -212,6 +387,176 @@
                     "I'd rather die than to listen to you",
                     "My DNA not for imitation",
                     "Your DNA an abomination"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Luther",
+        "artist": "Kendrick Lamar & SZA",
+        "location": "./assets/luther.mp3",
+        "image": "./images/content/luther.png",
+        "liked": false,
+        "id": 8,
+        "description": "'Luther' is a soulful collaboration between Kendrick Lamar and SZA, released on November 29, 2024, as the third single from Lamar's sixth studio album, GNX. the song explores themes of love, empowerment, and the desire to create a better world for one's partner. ",
+        "genre": "rnb",
+        "lyrics": [
+            {
+                "section": "Intro",
+                "lines": [
+                    "If this world were mine"
+                ]
+            },
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "Hey, Roman numeral seven, bae, drop it like it's hot",
+                    "If this world was mine, I'd take your dreams and make 'em multiply",
+                    "If this world was mine, I'd take your enemies in front of God",
+                    "Introduce 'em to that light, hit them strictly with that fire",
+                    "Fah-fah, fah-fah-fah, fah-fah, fah",
+                    "Hey, Roman numeral seven, bae, drop it like it's hot",
+                    "If this world was mine, I'd take your dreams and make 'em multiply",
+                    "If this world was mine, I'd take your enemies in front of God",
+                    "Introduce 'em to that light, hit them strictly with that fire",
+                    "It's a vibe, do your dance, let 'em watch",
+                    "She a fan, he a flop, they just wanna kumbaya, nah"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "It go in (When you), out (Ride it), do it real slow (Slide)",
+                    "Baby, you a star, strike, pose",
+                    "When I'm (When you), with you (With me), everything goes (Slow)",
+                    "Come and (Put that), put that (On my), on my (Titi), soul (Soul)",
+                    "'Rari (Red), crown (Stack), wrist (Stay), froze (Really)",
+                    "Drip (Tell me), pound (If you), on the way home (Love me)"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "In this world, concrete flowers grow",
+                    "Heartache, she only doin' what she know",
+                    "Weekends, get it poppin' on the low",
+                    "Better days comin' for sure",
+                    "If this world were—",
+                    "If it was up to me",
+                    "I wouldn't give these nobodies no sympathy",
+                    "I'd take away the pain, I'd give you everything",
+                    "I just wanna see you win, wanna see",
+                    "If this world were mine"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Snooze",
+        "artist": "SZA",
+        "location": "./assets/snooze.mp3",
+        "image": "./images/content/snooze.png",
+        "liked": false,
+        "id": 9,
+        "description": "'Snooze' by SZA is a sultry, emotionally layered track from her 2022 album SOS. Blending smooth R&B with vulnerable lyricism, the song explores the complexities of deep romantic attachment",
+        "genre": "rnb",
+        "lyrics": [
+            {
+                "section": "Intro",
+                "lines": [
+                    "Ooh",
+                    "I think I know"
+                ]
+            },
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "I'll touch that fire for you",
+                    "I do that three, four times again, I testify for you",
+                    "I told that lie, I'd kill that bi",
+                    "I do what all of them around you scared to do, I'm not",
+                    "Long as you juggin' out here for me, I got it",
+                    "Mobbin', schemin', lootin', hide your bodies",
+                    "Long as you dreamin' 'bout me, ain't no problem",
+                    "I don't got nobody, just with you right now",
+                    "Tell the truth, I look better under you"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "In a droptop ride with you, I feel like Scarface (Scarface)",
+                    "Like that white vi with the bob, I'll be your main one (Your main one)",
+                    "Lеt's take this argument back up to my place (My placе)",
+                    "remind you I'm nonviolent, I'm your day one (Day one)",
+                    "We ain't have sht yet, it was magic, yeah",
+                    "Smash and grab shit, yeah",
+                    "Nasty habits take a hold when you not here",
+                    "Ain't a home when you not here",
+                    "Hard to grow when you not here, I'm sayin'"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "I can't lose when I'm with you (Like you, like you)",
+                    "How can I snooze and miss the moment? (Like you)",
+                    "You just too important",
+                    "Nobody do body like you do",
+                    "I can't lose when I'm with you (Like you)",
+                    "How can I snooze and miss the moment? (Like you)",
+                    "You just too important",
+                    "Nobody do body like you do, you do"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Thinkin Bout You",
+        "artist": "Frank Ocean",
+        "location": "./assets/tby.mp3",
+        "image": "./images/content/tby.png",
+        "liked": false,
+        "id": 10,
+        "description": "'Thinkin Bout You' by Frank Ocean is a heartfelt R&B ballad from his 2012 album Channel Orange. The song explores themes of unrequited love and emotional vulnerability",
+        "genre": "rnb",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "A tornado flew around my room before you came",
+                    "Excuse the mess it made, it usually doesn't rain in",
+                    "Southern California, much like Arizona",
+                    "My eyes don't shed tears, but, boy, they pour when"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "No, I don't like you, I just thought you were cool enough to kick it",
+                    "Got a beach house I could sell you in Idaho",
+                    "Since you think I don't love you, I just thought you were cute",
+                    "That's why I kissed you",
+                    "Got a fighter jet, I don't get to fly it though",
+                    "I'm lying down"
+                ]
+            },
+            {
+                "section": "Pre Chorus",
+                "lines": [
+                    "Thinkin' 'bout you, ooh, no, no, no",
+                    "I've been thinkin' 'bout you, you know, know, know",
+                    "I've been thinkin' 'bout you, do you think about me still?",
+                    "Do ya, do ya?"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "Or do you not think so far ahead?",
+                    "Cause I been thinkin' 'bout forever, ooh",
+                    "Or do you not think so far ahead?",
+                    "Cause I been thinkin' 'bout forever, ooh"
                 ]
             }
         ]
