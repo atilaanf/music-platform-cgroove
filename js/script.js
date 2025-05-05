@@ -122,7 +122,6 @@ const likeSong = (id, likeBtn, songName) => {
             const name = songCard.lastChild?.firstChild.innerHTML;
             if (name == songName) {
                 console.log("Comparing:", name, "with", songName);  // Log for debugging
-
                 songCard.remove();
                 
             }
@@ -147,6 +146,7 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
 
     //Setting the new song for the global song object.
     currentSong.setAttribute("src", location);
+    currentSong.play();
 
     //Getting the required elements from the player head.
     const songContainer = document.querySelector(".song");
@@ -180,8 +180,7 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     artistContainer.innerHTML = artist;
     artistImage.src = image;
     
-    playBtn.style.display = "inline";
-    pauseBtn.style.display = "none";
+    
 
     //Adding other the selected song details in the player head.
 
@@ -305,3 +304,48 @@ progressBar.addEventListener('input', (event) => {
     // Set the audio's current time based on the percentage
     currentSong.currentTime = (currentSong.duration * progressPercentage) / 100;
 });
+
+const isSpace = e =>
+    e.code      === "Space"   ||
+    e.key       === " "       ||
+    e.key       === "Spacebar"||
+    e.keyCode   === 32;      
+
+window.addEventListener("keydown", e => {
+    if (!isSpace(e)) return;    // only care about Space
+    e.preventDefault();         // prevent page scroll
+  
+    // re‑grab buttons in case they were re‑rendered
+    playBtn  = document.getElementById("playBtn");
+    pauseBtn = document.getElementById("pauseBtn");
+  
+    if (currentSong.paused) {
+      currentSong.play();
+      playBtn.style.display  = "none";
+      pauseBtn.style.display = "inline";
+    } else {
+      currentSong.pause();
+      playBtn.style.display  = "inline";
+      pauseBtn.style.display = "none";
+    }
+  });
+
+
+
+
+
+  const collect = document.querySelectorAll('.coll');
+  collect.forEach(link => {
+    link.addEventListener('click', event => {
+      event.preventDefault();                 // stop the default #anchor jump
+        
+      
+     
+      window.location.href = './songcollection.html';
+    });
+  });
+
+
+  function setGenre(genreId) {
+    localStorage.setItem("selectedGenreId", genreId);  // Menyimpan genreId ke localStorage
+}

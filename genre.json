@@ -1,0 +1,22 @@
+[
+  {     "genreid":1,
+        "genretitle":"Pop",
+
+        "genredesc":"Pop is music that Pop"
+
+    },
+    {     "genreid":2,
+    "genretitle":"Kpop",
+
+    "genredesc":"KPop is music that KPop"
+
+},
+        {     "genreid":3,
+        "genretitle":"Rnb",
+
+        "genredesc":"Rnb is music that Rnb"
+
+            }
+    
+
+]
