@@ -190,7 +190,7 @@ a {
 .navigationsong:hover {
   background: var(--background-color-active);
   opacity: 1;
-
+  cursor: pointer;
 
 }
 
@@ -732,6 +732,7 @@ a {
 
   }
 
+  
   .navigationsong>span {
     margin-left: 15px;
   }

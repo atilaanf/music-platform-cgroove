@@ -338,9 +338,6 @@ window.addEventListener("keydown", e => {
   collect.forEach(link => {
     link.addEventListener('click', event => {
       event.preventDefault();                 // stop the default #anchor jump
-        
-      
-     
       window.location.href = './songcollection.html';
     });
   });
