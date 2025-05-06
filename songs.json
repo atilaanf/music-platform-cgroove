@@ -560,5 +560,68 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "anything 4 you",
+        "artist": "LANY",
+        "location": "./assets/a4u.mp3",
+        "image": "./images/content/a4u.png",
+        "liked": false,
+        "id": 11,
+        "description": "'anything 4 u' is a heartfelt pop song about unconditional love and devotion. The lyrics express a willingness to do anything for someone the singer deeply cares about, even if the love isn't fully returned. With dreamy synths and emotional vocals, the song captures the vulnerability and intensity of loving someone selflessly.",
+        "genre": "pop",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    "I know the house you grew up in",
+                    "All of the names of your best friends",
+                    "I know the way you feel about your dad",
+                    "I spent the summer on your couch",
+                    "You fell in love with someone else",
+                    "You came to me the times that it went bad"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "You know the house I grew up in",
+                    "You wouldn't knock, you'd just walk in",
+                    "Stay up for hours talking to my mom"
+                ]
+            },
+            {
+                "section": "Pre Chorus",
+                "lines": [
+                    "I'm something so familiar",
+                    "That you don't even notice",
+                    "The way I wanna love ya",
+                    "It's time that you should know this, know this"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "I'll catch a flight, go to the moon",
+                    "Lay on the floor of your living room",
+                    "And talk about the things that make you cry",
+                    "I'll sell my soul, sell my guitar",
+                    "Sleep in the back of a beat-up car",
+                    "Girl, just tell me what I have to do",
+                    "I'll do anything for you"
+                ]
+            },
+            {
+                "section": "Bridge",
+                "lines": [
+                    "If you say you wanna leave this town tonight",
+                    "Then let's do it",
+                    "If we're halfway there and then you change your mind",
+                    "There's nothing to it",
+                    "If it takes the rest of my whole life",
+                    "To prove it"
+                ]
+            }
+        ]
     }
 ]
