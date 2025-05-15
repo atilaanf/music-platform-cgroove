@@ -623,5 +623,65 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "XXL",
+        "artist": "LANY",
+        "location": "./assets/xxl.mp3",
+        "image": "./images/content/xxl.png",
+        "liked": false,
+        "id": 12,
+        "description": "LANY's 'XXL' describes the intense feeling of missing someone, using 'XXL' to represent a very large amount of missing or hurting",
+        "genre": "pop",
+        "lyrics": [
+            {
+                "section": "Verse 1",
+                "lines": [
+                    " All my favorite songs are from 2018",
+                    "We flew around the world with our small-town dreams",
+                    "You're a superstar and you wear it so well",
+                    " But nothin' like you in my hoodie, double-XL"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "You know the house I grew up in",
+                    "You wouldn't knock, you'd just walk in",
+                    "Stay up for hours talking to my mom"
+                ]
+            },
+            {
+                "section": "Pre Chorus",
+                "lines": [
+                    "Bloodstream",
+                    "Full of desert lightnin'",
+                    "Thank God I'm not drivin'",
+                    "A blur the whole way home"
+                ]
+            },
+            {
+                "section": "Chorus",
+                "lines": [
+                    "  I still remember",
+                    "I will forever",
+                    "Backseat secrets we won't ever tell",
+                    "I miss you double-XL",
+                    "Miss Americana",
+                    "And all my friends love ya",
+                    "Back patio at the Bowery Hotel",
+                    "I miss you double-XL"
+                ]
+            },
+            {
+                "section": "Verse 2",
+                "lines": [
+                    "You've been goin' out in the glitter and glow",
+                    "Hollywood fadеs and it's startin' to show",
+                    "I'm barely hangin' on and I'm lookin' for help",
+                    "Every night without you, hurtin' doublе-XL"
+                ]
+            }
+        ]
     }
 ]

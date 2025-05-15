@@ -213,6 +213,9 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
 
 
     }
+    document.querySelector('.artist_details').onclick = (e) => {
+        window.location.href = `detailSong.html?id=${id}`;
+    }
 
 
 
