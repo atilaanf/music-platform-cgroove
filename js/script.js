@@ -350,3 +350,12 @@ collect.forEach(link => {
 function setGenre(genreId) {
     localStorage.setItem("selectedGenreId", genreId);  // Menyimpan genreId ke localStorage
 }
+function toggleHamburger(icon) {
+  icon.classList.toggle("active");
+  const nav = document.getElementById("navigation");
+  if (nav.style.display === "flex") {
+    nav.style.display = "none";
+  } else {
+    nav.style.display = "flex";
+  }
+}
