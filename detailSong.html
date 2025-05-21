@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C'groove Detail Song</title>
+    <link rel="stylesheet" href="css/detailsong.css">
+<link rel="icon" href="images/logo.png" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <!-- <link rel="stylesheet" href="css/style.css"> -->
-<link rel="stylesheet" href="css/detailsong.css">
-<link rel="icon" href="images/logo.png" />
+
 <body>
     <main class="detailsong-container">
             <div class="title-section">
@@ -25,6 +28,30 @@
                 </div>
 
             </div>
+            <div id="player">
+            
+            
+                <div id="player__controls">
+                  <div id="controls">
+                    <i class="fas fa-random" title="Enable Shuffle"></i>
+                    <i class="fas fa-step-backward" title="Previous"></i>
+                    <i class="fas fa-play-circle" id="playBtn" title="Play"></i>
+                    <i class="fas fa-pause-circle" id="pauseBtn" title="Pause"></i>
+                    <i class="fas fa-step-forward" title="Next"></i>
+                    <i class="fas fa-retweet" title="Repeat"></i>
+                  </div>
+                  <div id="timeline">
+                    <div class="time" id="start-time">0:00</div>
+                    <div class="progress-container">
+                      
+                      <input id="progressBar" type="range" min="0" max="100" value="0" step="1" />
+                    
+                    </div>
+                    <div class="time" id="end_time">0:00</div>
+                  </div>
+                </div>
+               
+              </div>
 
             <div class="lyrics-container">
                 <div class="lyrics-section">
@@ -41,6 +68,7 @@
                 </div>
             </div>
 
+           
     </main>
     <script src="js/detail.js"></script>
 </body>
