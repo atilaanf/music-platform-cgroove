@@ -1,34 +1,33 @@
-
-
 let songs = null;
 let currentSong = new Audio();
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const response = await fetch('songs.json');
-        const data = await response.json();
-        songs = data;
+        songs = await response.json();
         console.log(songs); // Make sure the data is loaded
-        initDetailPage(); // Only call this after songs is populated
+
+        initDetailPage(); // call this AFTER songs is ready
+
     } catch (error) {
         console.error("Error loading songs.json:", error);
     }
 });
 
 function initDetailPage() {
+    console.log('initDetailPage called');
 
-    console.log('test');
-    let detail = document.querySelector('.detailsong-container')
+    let detail = document.querySelector('.detailsong-container');
     let songid = new URLSearchParams(window.location.search).get('id');
 
-    let thisSong = songs.filter(value => {
-        return value.id == songid
-    })[0];
-    // if there is no song has id= songid=> return to home page
+    let thisSong = songs.find(value => value.id == songid);
+
     if (!thisSong) {
-        window.location.href = "/"
+        window.location.href = "/";
+        return;
     }
-    //and if has, add data to html
+
+    // Populate detail page info
     detail.querySelector('.song-img-container img').src = thisSong.image;
     detail.querySelector('.song-title').innerText = thisSong.name;
     detail.querySelector('.brief-desc').innerText = thisSong.description;
@@ -36,15 +35,40 @@ function initDetailPage() {
     const authorAnchor = document.querySelector('.song-author a');
     if (authorAnchor) {
         authorAnchor.href = `https://www.google.com/search?q=${encodeURIComponent(thisSong.artist)}`;
-        authorAnchor.textContent = thisSong.artist;  // ✅ THIS LINE updates the visible text
+        authorAnchor.textContent = thisSong.artist;
     } else {
         console.warn("Author anchor element not found!");
     }
+
     renderLyrics(thisSong.lyrics);
+
+    // Set up player audio element with the song, but DO NOT autoplay yet
     currentSong = updatePlayer(thisSong);
-    playPauseFunc(thisSong);
 
+    // After metadata is loaded, restore playback state and play/pause accordingly
+    currentSong.addEventListener('loadedmetadata', () => {
+        const playerState = JSON.parse(localStorage.getItem("playerState"));
 
+        if (playerState) {
+            currentSong.currentTime = playerState.currentTime || 0;
+            currentSong.volume = playerState.volume ?? 1;
+
+            if (playerState.isPlaying) {
+                currentSong.play();
+                playBtn.style.display = "none";
+                pauseBtn.style.display = "inline";
+            } else {
+                playBtn.style.display = "inline";
+                pauseBtn.style.display = "none";
+            }
+        } else {
+            // Default state
+            playBtn.style.display = "inline";
+            pauseBtn.style.display = "none";
+        }
+    });
+
+    playPauseFunc(currentSong);
 }
 
 function renderLyrics(lyricsData) {
@@ -76,109 +100,49 @@ function renderLyrics(lyricsData) {
     });
 }
 
-
-const playerHead = document.getElementById("player");
-let playBtn = document.getElementById("playBtn");
-let pauseBtn = document.getElementById("pauseBtn");
-
 const playPauseFunc = (song) => {
-    //Reinitialize the buttons.
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
 
-    //When the play button is clicked, the song is played.
-    playBtn.addEventListener("click", () => {
+    playBtn.onclick = () => {
         song.play();
         playBtn.style.display = "none";
         pauseBtn.style.display = "inline";
-    });
+    };
 
-    //When the pause button is clicked, the song is paused.
-    pauseBtn.addEventListener("click", () => {
+    pauseBtn.onclick = () => {
         song.pause();
         playBtn.style.display = "inline";
         pauseBtn.style.display = "none";
-    });
+    };
 }
-const updatePlayer = ({ id, location }) => {
-    //The arugument of the function is a song object
-    //We are destructuing it in the arguments directly and using it.
 
-    //Setting the new song for the global song object.
-    currentSong.setAttribute("src", location);
-    currentSong.play();
-
-    //Getting the required elements from the player head.
-    const songContainer = document.querySelector(".song");
-    const artistContainer = document.querySelector(".artist");
-    const likeBtn = document.querySelector(".likeBtn");
-    const artistImage = document.querySelector(".artist_image");
-    const endTime = document.getElementById("end_time");
-
-    //change song title into a clickable link
-    songContainer.innerHTML = '';
-    const songLink = document.createElement('a');
-    songLink.href = 'detailSong.html?id=' + id;
-    songLink.className = 'player-song-link'
-    songLink.textContent = name;
-    songContainer.appendChild(songLink);
-
-
-    artistContainer.innerHTML = artist;
-    artistImage.src = image;
+const updatePlayer = ({ location }) => {
+    // Set the new source for the audio but DO NOT autoplay here
+    currentSong.src = location;
 
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
 
-    //Setting the default to the player head pause and play buttons.
-    playBtn.style.display = "none";
-    pauseBtn.style.display = "inline";
+    // Reset play/pause buttons to paused state by default, wait for actual play event
+    playBtn.style.display = "inline";
+    pauseBtn.style.display = "none";
 
-    //Adding the selected song details in the player head.
-
-    artistContainer.innerHTML = artist;
-    artistImage.src = image;
-
-
-
-
-
-
-
-
-    //When the current song is loaded, set it's duration and add it 
-    //to the end time element.
-
-    thisSong.addEventListener('loadedmetadata', function () {
-        startendtime();
-    });
-
-    function startendtime() {
-
+    // Update song duration display when metadata loads
+    currentSong.addEventListener('loadedmetadata', () => {
         const menit = Math.floor(currentSong.duration / 60);
         const detik = Math.floor(currentSong.duration % 60);
-
         document.getElementById('end_time').textContent = `${menit}:${detik}`;
+    });
 
-        console.log(thisSong)
-    }
+    currentSong.addEventListener('timeupdate', updateProgressBar);
 
-
-
-    thisSong.addEventListener('timeupdate', updateProgressBar);
-
-    //Return the current song 
-    return thisSong;
+    return currentSong;
 }
-document.addEventListener("DOMContentLoaded", async () => {
-    updateCollection();
-})
-
 
 const progressBar = document.getElementById('progressBar');
 
 function updateProgressBar() {
-    // Ensure currentSong is the actual audio being played
     if (currentSong.duration > 0) {
         const progress = (currentSong.currentTime / currentSong.duration) * 100;
         progressBar.value = progress;
@@ -186,17 +150,11 @@ function updateProgressBar() {
 
     const menit = Math.floor(currentSong.currentTime / 60);
     const detik = Math.floor(currentSong.currentTime % 60);
-
     document.getElementById('start-time').textContent = `${menit}:${detik}`;
-
 }
 
-
 progressBar.addEventListener('input', (event) => {
-    // Get the percentage of the progress bar (between 0 and 100)
     const progressPercentage = event.target.value;
-
-    // Set the audio's current time based on the percentage
     currentSong.currentTime = (currentSong.duration * progressPercentage) / 100;
 });
 
@@ -207,10 +165,9 @@ const isSpace = e =>
     e.keyCode === 32;
 
 window.addEventListener("keydown", e => {
-    if (!isSpace(e)) return;    // only care about Space
-    e.preventDefault();         // prevent page scroll
+    if (!isSpace(e)) return;
+    e.preventDefault();
 
-    // re‑grab buttons in case they were re‑rendered
     playBtn = document.getElementById("playBtn");
     pauseBtn = document.getElementById("pauseBtn");
 
@@ -224,6 +181,3 @@ window.addEventListener("keydown", e => {
         pauseBtn.style.display = "none";
     }
 });
-
-
-

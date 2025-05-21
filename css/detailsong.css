@@ -234,3 +234,15 @@ main {
     align-items: center;
     margin-top: 10px;
 }
+
+#player i {
+    color: rgb(82, 82, 82);
+}
+
+#player i:hover {
+    color: #fff;
+}
+
+#pauseBtn {
+    display: none;
+}

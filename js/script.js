@@ -202,8 +202,7 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
 
 
     songLink.onclick = (e) => {
-
-        //save playback before navigate
+        e.preventDefault();
         localStorage.setItem('playerState', JSON.stringify({
             currentTime: currentSong.currentTime,
             isPlaying: !currentSong.paused,
@@ -211,11 +210,9 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
         }));
         localStorage.setItem("selectedSongId", id);
 
-
-    }
-    document.querySelector('.artist_details').onclick = (e) => {
+        // Navigate manually after saving
         window.location.href = `detailSong.html?id=${id}`;
-    }
+    };
 
 
 
@@ -351,11 +348,11 @@ function setGenre(genreId) {
     localStorage.setItem("selectedGenreId", genreId);  // Menyimpan genreId ke localStorage
 }
 function toggleHamburger(icon) {
-  icon.classList.toggle("active");
-  const nav = document.getElementById("navigation");
-  if (nav.style.display === "flex") {
-    nav.style.display = "none";
-  } else {
-    nav.style.display = "flex";
-  }
+    icon.classList.toggle("active");
+    const nav = document.getElementById("navigation");
+    if (nav.style.display === "flex") {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "flex";
+    }
 }
