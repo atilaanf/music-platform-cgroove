@@ -184,12 +184,15 @@
 
 @media (max-width: 600px) {
     #registration {
-        width: 100%;
-        padding: 10px;
+        flex-direction: column-reverse;
+        width: 90%;
+        height: 800px;
+
     }
 
     .register {
         padding: 15px;
+        width: 100%;
     }
 
     .register div {
@@ -201,5 +204,52 @@
 
     .register div input {
         width: 100%;
+    }
+
+    .register-header{
+        width: 100%;
+        color: white;
+        text-align: start;
+        position:absolute;
+        margin: 20px 0 0 30px;
+        padding: 20px;
+    }
+    .register-header > h1{
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    .register-header > img{
+        width: 40px;
+        margin-bottom: 10px;
+    }
+    .registration-welcome {
+        width: 100%;
+        height: 300px;
+    }
+    .registration-welcome {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                    url('/images/registerbackground.jpg') no-repeat center center/cover;
+    }
+
+    .registration-welcome::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: inherit;
+        filter: blur(2px);
+        z-index: -1;
+    }
+    .register > h1{
+        font-size: 2rem;
+        padding: 10px;
+    }
+    .register-header > h1{
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 }
