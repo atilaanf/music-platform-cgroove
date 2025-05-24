@@ -74,7 +74,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const songsForSelectedGenre = songData.filter(songs => songs.genre === idtogenre(selectedGenreId));
 
-        console.log(songsForSelectedGenre)
+        
+        const genreimgcontainer = document.querySelector(".song-img-container")
+       const imgcontainerinside=document.createElement('div')
+
+        genreimgcontainer.appendChild(imgcontainerinside)
+
+        const img=document.createElement('img')
+
+        img.src = selectedGenre.imgSrc;
+
+        imgcontainerinside.appendChild(img)
+
+
+        console.log(selectedGenre.imgSrc)
 
       // Create card for each song
       const createCard = (song) => {
@@ -89,6 +102,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         cardInfo.className = "card_info";
         cardName.className = "card_name";
         cardArtist.className = "card_artist";
+        
 
         // Adding the song details to the card.
         cardName.innerHTML = song.name;
@@ -126,3 +140,5 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("Error loading data:", error);
     }
 });
+
+

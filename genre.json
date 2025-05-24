@@ -1,19 +1,20 @@
 [
   {     "genreid":1,
         "genretitle":"Pop",
-
+        "imgSrc": "./images/popimg.jpg",
         "genredesc":"Pop is music that Pop"
 
     },
     {     "genreid":3,
     "genretitle":"Kpop",
+    "imgSrc": "./images/popimg.jpg",
 
     "genredesc":"KPop is music that KPop"
 
 },
         {     "genreid":2,
         "genretitle":"Rnb",
-
+        "imgSrc": "./images/popimg.jpg",
         "genredesc":"Rnb is music that Rnb"
 
             }
