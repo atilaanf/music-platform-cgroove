@@ -86,8 +86,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         imgcontainerinside.appendChild(img)
 
+        
 
         console.log(selectedGenre.imgSrc)
+        
 
       // Create card for each song
       const createCard = (song) => {
@@ -121,9 +123,61 @@ document.addEventListener("DOMContentLoaded", async () => {
             playPauseFunc(currentSong);
         };
 
+        playPauseFunc(currentSong);
+
+        // Update song duration display when metadata loads
+    currentSong.addEventListener('loadedmetadata', () => {
+        const menit = Math.floor(currentSong.duration / 60);
+        const detik = Math.floor(currentSong.duration % 60);
+        document.getElementById('end_time').textContent = `${menit}:${detik}`;
+    });
+
+    currentSong.addEventListener('timeupdate', updateProgressBar);
+       
+
         // Return the dynamic card element.
         return card;
     };
+
+
+
+    //play pause function
+    const playPauseFunc = (song) => {
+    playBtn = document.getElementById("playBtn");
+    pauseBtn = document.getElementById("pauseBtn");
+
+    playBtn.onclick = () => {
+        song.play();
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline";
+    };
+
+    pauseBtn.onclick = () => {
+        song.pause();
+        playBtn.style.display = "inline";
+        pauseBtn.style.display = "none";
+    };
+}
+
+
+//progressbar
+const progressBar = document.getElementById('progressBar');
+
+function updateProgressBar() {
+    if (currentSong.duration > 0) {
+        const progress = (currentSong.currentTime / currentSong.duration) * 100;
+        progressBar.value = progress;
+    }
+
+    const menit = Math.floor(currentSong.currentTime / 60);
+    const detik = Math.floor(currentSong.currentTime % 60);
+    document.getElementById('start-time').textContent = `${menit}:${detik}`;
+}
+
+progressBar.addEventListener('input', (event) => {
+    const progressPercentage = event.target.value;
+    currentSong.currentTime = (currentSong.duration * progressPercentage) / 100;
+});
 
     // Append cards to the container
     const cardCollectionMain = document.querySelector(".card__collection_main");

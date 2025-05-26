@@ -183,10 +183,6 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     artistImage.src = image;
 
 
-
-    //Adding other the selected song details in the player head.
-
-
     //Assign the id of the song to the button,
     //Check is song is liked and add the color based on song.liked.
     likeBtn.id = id;
