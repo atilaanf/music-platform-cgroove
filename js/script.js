@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log(songs); // Make sure the data is loaded
         updateCollection(); // Only call this after songs is populated
     } catch (error) {
-        console.error("Error loading songs.json:", error);
+        console.error("Error loading songs.json:");
     }
 });
 
@@ -183,10 +183,6 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     artistImage.src = image;
 
 
-
-    //Adding other the selected song details in the player head.
-
-
     //Assign the id of the song to the button,
     //Check is song is liked and add the color based on song.liked.
     likeBtn.id = id;
@@ -202,8 +198,7 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
 
 
     songLink.onclick = (e) => {
-
-        //save playback before navigate
+        e.preventDefault();
         localStorage.setItem('playerState', JSON.stringify({
             currentTime: currentSong.currentTime,
             isPlaying: !currentSong.paused,
@@ -211,11 +206,9 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
         }));
         localStorage.setItem("selectedSongId", id);
 
-
-    }
-    document.querySelector('.artist_details').onclick = (e) => {
+        // Navigate manually after saving
         window.location.href = `detailSong.html?id=${id}`;
-    }
+    };
 
 
 
@@ -336,26 +329,20 @@ window.addEventListener("keydown", e => {
 
 
 
-
-
-const collect = document.querySelectorAll('.coll');
-collect.forEach(link => {
-    link.addEventListener('click', event => {
-        event.preventDefault();                 // stop the default #anchor jump
-        window.location.href = './songcollection.html';
-    });
-});
-
-
 function setGenre(genreId) {
-    localStorage.setItem("selectedGenreId", genreId);  // Menyimpan genreId ke localStorage
+    console.log('Navigating to genre:', genreId);
+    localStorage.setItem("selectedGenreId", genreId);
+    window.location.href = './songcollection.html';
 }
+
+
+
 function toggleHamburger(icon) {
-  icon.classList.toggle("active");
-  const nav = document.getElementById("navigation");
-  if (nav.style.display === "flex") {
-    nav.style.display = "none";
-  } else {
-    nav.style.display = "flex";
-  }
+    icon.classList.toggle("active");
+    const nav = document.getElementById("navigation");
+    if (nav.style.display === "flex") {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "flex";
+    }
 }

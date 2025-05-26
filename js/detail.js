@@ -1,33 +1,33 @@
-
-
 let songs = null;
+let currentSong = new Audio();
 
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         const response = await fetch('songs.json');
-        const data = await response.json();
-        songs = data;
+        songs = await response.json();
         console.log(songs); // Make sure the data is loaded
-        initDetailPage(); // Only call this after songs is populated
+
+        initDetailPage(); // call this AFTER songs is ready
+
     } catch (error) {
         console.error("Error loading songs.json:", error);
     }
 });
 
 function initDetailPage() {
+    console.log('initDetailPage called');
 
-    console.log('test');
-    let detail = document.querySelector('.detailsong-container')
+    let detail = document.querySelector('.detailsong-container');
     let songid = new URLSearchParams(window.location.search).get('id');
 
-    let thisSong = songs.filter(value => {
-        return value.id == songid
-    })[0];
-    // if there is no song has id= songid=> return to home page
+    let thisSong = songs.find(value => value.id == songid);
+
     if (!thisSong) {
-        window.location.href = "/"
+        window.location.href = "/";
+        return;
     }
-    //and if has, add data to html
+
+    // Populate detail page info
     detail.querySelector('.song-img-container img').src = thisSong.image;
     detail.querySelector('.song-title').innerText = thisSong.name;
     detail.querySelector('.brief-desc').innerText = thisSong.description;
@@ -35,12 +35,40 @@ function initDetailPage() {
     const authorAnchor = document.querySelector('.song-author a');
     if (authorAnchor) {
         authorAnchor.href = `https://www.google.com/search?q=${encodeURIComponent(thisSong.artist)}`;
-        authorAnchor.textContent = thisSong.artist;  // ✅ THIS LINE updates the visible text
+        authorAnchor.textContent = thisSong.artist;
     } else {
         console.warn("Author anchor element not found!");
     }
+
     renderLyrics(thisSong.lyrics);
 
+    // Set up player audio element with the song, but DO NOT autoplay yet
+    currentSong = updatePlayer(thisSong);
+
+    // After metadata is loaded, restore playback state and play/pause accordingly
+    currentSong.addEventListener('loadedmetadata', () => {
+        const playerState = JSON.parse(localStorage.getItem("playerState"));
+
+        if (playerState) {
+            currentSong.currentTime = playerState.currentTime || 0;
+            currentSong.volume = playerState.volume ?? 1;
+
+            if (playerState.isPlaying) {
+                currentSong.play();
+                playBtn.style.display = "none";
+                pauseBtn.style.display = "inline";
+            } else {
+                playBtn.style.display = "inline";
+                pauseBtn.style.display = "none";
+            }
+        } else {
+            // Default state
+            playBtn.style.display = "inline";
+            pauseBtn.style.display = "none";
+        }
+    });
+
+    playPauseFunc(currentSong);
 }
 
 function renderLyrics(lyricsData) {
@@ -71,3 +99,85 @@ function renderLyrics(lyricsData) {
         lyricsContainer.appendChild(sectionDiv);
     });
 }
+
+const playPauseFunc = (song) => {
+    playBtn = document.getElementById("playBtn");
+    pauseBtn = document.getElementById("pauseBtn");
+
+    playBtn.onclick = () => {
+        song.play();
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline";
+    };
+
+    pauseBtn.onclick = () => {
+        song.pause();
+        playBtn.style.display = "inline";
+        pauseBtn.style.display = "none";
+    };
+}
+
+const updatePlayer = ({ location }) => {
+    // Set the new source for the audio but DO NOT autoplay here
+    currentSong.src = location;
+
+    playBtn = document.getElementById("playBtn");
+    pauseBtn = document.getElementById("pauseBtn");
+
+    // Reset play/pause buttons to paused state by default, wait for actual play event
+    playBtn.style.display = "inline";
+    pauseBtn.style.display = "none";
+
+    // Update song duration display when metadata loads
+    currentSong.addEventListener('loadedmetadata', () => {
+        const menit = Math.floor(currentSong.duration / 60);
+        const detik = Math.floor(currentSong.duration % 60);
+        document.getElementById('end_time').textContent = `${menit}:${detik}`;
+    });
+
+    currentSong.addEventListener('timeupdate', updateProgressBar);
+
+    return currentSong;
+}
+
+const progressBar = document.getElementById('progressBar');
+
+function updateProgressBar() {
+    if (currentSong.duration > 0) {
+        const progress = (currentSong.currentTime / currentSong.duration) * 100;
+        progressBar.value = progress;
+    }
+
+    const menit = Math.floor(currentSong.currentTime / 60);
+    const detik = Math.floor(currentSong.currentTime % 60);
+    document.getElementById('start-time').textContent = `${menit}:${detik}`;
+}
+
+progressBar.addEventListener('input', (event) => {
+    const progressPercentage = event.target.value;
+    currentSong.currentTime = (currentSong.duration * progressPercentage) / 100;
+});
+
+const isSpace = e =>
+    e.code === "Space" ||
+    e.key === " " ||
+    e.key === "Spacebar" ||
+    e.keyCode === 32;
+
+window.addEventListener("keydown", e => {
+    if (!isSpace(e)) return;
+    e.preventDefault();
+
+    playBtn = document.getElementById("playBtn");
+    pauseBtn = document.getElementById("pauseBtn");
+
+    if (currentSong.paused) {
+        currentSong.play();
+        playBtn.style.display = "none";
+        pauseBtn.style.display = "inline";
+    } else {
+        currentSong.pause();
+        playBtn.style.display = "inline";
+        pauseBtn.style.display = "none";
+    }
+});
