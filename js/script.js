@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.log(songs); // Make sure the data is loaded
         updateCollection(); // Only call this after songs is populated
     } catch (error) {
-        console.error("Error loading songs.json:", error);
+        console.error("Error loading songs.json:");
     }
 });
 
@@ -329,20 +329,14 @@ window.addEventListener("keydown", e => {
 
 
 
-
-
-const collect = document.querySelectorAll('.coll');
-collect.forEach(link => {
-    link.addEventListener('click', event => {
-        event.preventDefault();                 // stop the default #anchor jump
-        window.location.href = './songcollection.html';
-    });
-});
-
-
 function setGenre(genreId) {
-    localStorage.setItem("selectedGenreId", genreId);  // Menyimpan genreId ke localStorage
+    console.log('Navigating to genre:', genreId);
+    localStorage.setItem("selectedGenreId", genreId);
+    window.location.href = './songcollection.html';
 }
+
+
+
 function toggleHamburger(icon) {
     icon.classList.toggle("active");
     const nav = document.getElementById("navigation");
