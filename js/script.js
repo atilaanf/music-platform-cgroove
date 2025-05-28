@@ -164,6 +164,8 @@ const updatePlayer = ({ name, artist, location, image, liked, id }) => {
     songLink.href = 'detailSong.html?id=' + id;
     songLink.className = 'player-song-link'
     songLink.textContent = name;
+    const iconLink = document.querySelector('.fa-external-link-alt');
+    iconLink.href = 'detailSong.html?id=' + id;
     songContainer.appendChild(songLink);
 
 
