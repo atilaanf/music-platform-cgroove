@@ -29,17 +29,7 @@ playerHead.style.display = "none";
 
 //Function to create card and add functionality to update player head.
 const createCard = (song) => {
-    //Takes in the song object as an argument.
-    /*
-    Create the Structure.
-    <div class="card">
-        <img src="./images/content/noctornal.jpg" alt="Noctornal">
-            <div class="card_info">
-                <p class="card_name">Noctornal</p>
-                <p class="card_artist">The Midnight</p>
-            </div>
-    </div>
-    */
+
     const card = document.createElement("div");
     const img = document.createElement("img");
     const cardInfo = document.createElement("div");
@@ -144,10 +134,7 @@ const likeSong = (id, likeBtn, songName) => {
 
 //update the player head whenever a new song is clicked. 
 const updatePlayer = ({ name, artist, location, image, liked, id }) => {
-    //The arugument of the function is a song object
-    //We are destructuing it in the arguments directly and using it.
 
-    //Setting the new song for the global song object.
     currentSong.setAttribute("src", location);
     currentSong.play();
 
