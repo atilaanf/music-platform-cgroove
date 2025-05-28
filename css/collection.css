@@ -21,16 +21,19 @@
     body {
         font-family: "Lato", sans-serif;
         margin-top: 0;
-        
+        overflow-x: hidden;
+
     }
 
     main {
         width: 100%;
-        min-height: calc(100vh - 180px); /* Account for topbar and player */
-        padding-bottom: 90px; /* Space for player */
+        min-height: calc(100vh - 180px);
+        /* Account for topbar and player */
+        padding-bottom: 90px;
+        /* Space for player */
     }
 
-  
+
 
 
     .title-section {
@@ -154,7 +157,7 @@
         max-width: 600px;
     }
 
- 
+
     .card__title {
         margin: 2rem 1rem 1.5rem;
         color: #fff;
@@ -192,7 +195,7 @@
         margin-bottom: 2rem;
     }
 
-    
+
     .card {
         border-radius: 12px;
         padding: 1.25rem;
@@ -231,7 +234,7 @@
         border-color: rgba(29, 185, 84, 0.3);
     }
 
-    .card > img {
+    .card>img {
         width: 100%;
         aspect-ratio: 1;
         object-fit: cover;
@@ -240,7 +243,7 @@
         transition: transform 0.3s ease;
     }
 
-    .card:hover > img {
+    .card:hover>img {
         transform: scale(1.05);
     }
 
@@ -290,7 +293,7 @@
             gap: 1.5rem;
             padding: 1.5rem;
         }
-        
+
         .card__collection_main {
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 1.25rem;
@@ -299,8 +302,8 @@
     }
 
     @media screen and (max-width: 768px) {
-        
-        
+
+
         .title-section {
             grid-template-areas:
                 "back"
@@ -333,17 +336,17 @@
         }
 
         .card__collection_main {
-        
+
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 1rem;
             padding: 1rem;
         }
-        
+
         .card__title {
             margin: 1.5rem 0.5rem 1rem;
             padding: 0 0.5rem;
         }
-        
+
         .card__title h1 {
             font-size: 1.5rem;
         }
@@ -355,20 +358,20 @@
         .title-section {
             padding: 1rem 0.5rem;
         }
-        
+
         .card__collection_main {
             grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             padding: 0.5rem;
         }
-        
+
         .card {
             padding: 1rem;
         }
-        
+
         .song-title {
             font-size: 1.8rem !important;
         }
-        
+
         .brief-desc {
             font-size: 0.9rem;
         }
@@ -387,6 +390,7 @@
             opacity: 0;
             transform: translateY(30px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -399,6 +403,3 @@
         outline: 2px solid #1db954;
         outline-offset: 2px;
     }
-
-    
-
