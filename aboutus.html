@@ -18,6 +18,8 @@
     </head>
 <body>
     
+  <!-- Top -->
+
   <div id="topbar">
     <div class="topbar-row">
       <div id="logo">
@@ -32,17 +34,19 @@
         
         <p>Alfons</p>
       </div>
-      <a href="javascript:void(0);" class="hamburger" onclick="openHamburger()">
-        <i class="fa fa-bars"></i>
-      </a>
+      <div class="hamburger" onclick="toggleHamburger(this)">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
       
       <div id="navigation">
-          <a href="/index.html" class="navigation_item">
+          <a href="#" class="navigation_item active_nav">
               <i class="fas fa-home"></i> 
               <span>Home</span>
           </a>
-          <a href="#" class="navigation_item active_nav">
+          <a href="aboutus.html" class="navigation_item">
               <i class="fas fa-search"></i> 
               <span>About us</span>
           </a>
@@ -53,11 +57,12 @@
                     <li><a class="coll" onclick="setGenre(1)">Pop</a></li>
                     <li><a class="coll" onclick="setGenre(2)">R&B</a></li>
                     <li><a class="coll" onclick="setGenre(3)">K-Pop</a></li>
-                 </ul>
+                </ul>
 
               </div>
       </div>
   </div>
+
 
     <div class="About-History masked-image">
     <div class="title">
