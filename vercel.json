@@ -1,5 +1,9 @@
 {
-  "routes": [
-    { "src": "/", "dest": "/register.html" }
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/register.html",
+      "permanent": true
+    }
   ]
 }
